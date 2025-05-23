@@ -6,8 +6,8 @@
 I'm a Database Engineer at Adapt Ready, passionate about database optimization, automation, and beautiful user experiences. With expertise in PL/SQL, PostgreSQL, and Python, I focus on creating efficient systems while exploring the fascinating worlds of UI/UX design and cloud computing.
 
 ### Professional Journey 💼
-- **Database Engineer** at Adapt Ready
-- Previously worked with **TCS** and **Wipro**
+- **Assistant Manager** at Bosch
+- Previously worked with **TCS**, **Wipro** and **Adapt Ready**
 - Specialized in database optimization and automation
 - Reduced execution times through PL/SQL query optimization
 - Automated database processes, cutting manual effort by 80%
