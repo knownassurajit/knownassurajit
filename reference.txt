@@ -1,0 +1,116 @@
+Surajit Das
+
+📞 +91 8670043341 | ✉️ isurajit123@gmail.com
+🔗 LinkedIn | 🌐 Portfolio
+
+⸻
+
+PROFESSIONAL SUMMARY
+
+Accomplished Database Engineer with over 3 years of experience in designing, optimizing, and managing enterprise-grade databases. Demonstrated expertise in PL/SQL, PostgreSQL, and MySQL with a strong command of data migration, cloud deployment, and performance tuning. Adept in Agile methodologies, DevOps principles, and cross-functional collaboration. Committed to developing scalable and secure systems, driven by a passion for emerging technologies, HCI, and sustainable software practices.
+
+⸻
+
+TECHNICAL SKILLS
+	•	Programming: Python, C/C++, Bash, SQL, PL/SQL
+	•	Database Management: Oracle, PostgreSQL, MySQL, DataGrip, DBeaver, Azure Studio
+	•	Software Development: OOP, Software Design Patterns, Testing & Debugging, Agile
+	•	DevOps & CI/CD: Git, Jenkins, Automated Backups, Bash Scripting, Cloud Storage
+	•	Data Operations: Data Modeling, ETL, Data Cleaning, Migration, Visualization (Power BI, Tableau)
+	•	UI/UX Tools: Figma, Adobe XD, Sketch
+	•	Operating Systems: Linux, Windows, MacOS
+
+⸻
+
+PROFESSIONAL EXPERIENCE
+
+Bosch India
+
+Assistant Manager (Feb 2025 – Present)
+	•	Led ETL development and Oracle SQL optimization for scalable business intelligence systems.
+	•	Automated reporting pipelines and migrated BI dashboards, enhancing performance by 30%.
+	•	Directed KPI standardization across projects, ensuring data accuracy and compliance.
+
+Adapt Ready
+
+Database Engineer (Nov 2024 – Jan 2025)
+	•	Developed robust data pipelines and automated backup systems using shell scripts.
+	•	Achieved 80% reduction in manual database maintenance.
+	•	Reinforced data security by integrating encrypted cloud storage for backups.
+
+Walmart Global Tech India
+
+Backend Engineer
+	•	Designed high-performance PL/SQL modules with CI/CD pipelines for real-time applications.
+	•	Implemented unit tests, version control workflows, and optimized query execution.
+
+GE Renewables
+
+Database Developer
+	•	Delivered PostgreSQL-driven analytics solutions for operational efficiency.
+	•	Conducted business process optimization with SQL insights for better decision support.
+
+Tata Consultancy Services (TCS)
+
+PL/SQL Developer – TCS BaNCS (Oct 2021 – Nov 2024)
+	•	Engineered scalable financial systems for BFSI clients under strict regulatory compliance.
+	•	Spearheaded a database migration from PostgreSQL to Oracle, enhancing retrieval speeds by 25% and cutting storage costs by 20%.
+
+Wipro Limited
+
+Backend Engineer – Alight Solutions (May 2021 – Oct 2021)
+	•	Managed core database operations, performance tuning, and data integrity assurance.
+	•	Contributed to secure, compliant infrastructure aligned with evolving tech standards.
+
+⸻
+
+KEY PROJECTS
+	•	Cloud Database Migration: Transitioned PostgreSQL data to Oracle; improved access speeds and optimized storage.
+	•	Automated Backup Solution: Bash-scripted system for daily incremental/full backups, integrated with cloud security.
+	•	Limit Order Book Engine: Implemented a data structure-based trading engine with order matching and execution logic.
+	•	Facial Expression Recognition System: Built using Python ML libraries; included training, evaluation, and deployment.
+	•	Calculator Application: Developed robust logic for I/O, error handling, and mathematical computations.
+	•	Personal Portfolio Website: Designed and hosted using GitHub Pages with CMS integration and responsive design.
+
+⸻
+
+CERTIFICATIONS
+	•	Google IT Support Professional Certificate
+Skills: OS administration, automation, security, troubleshooting
+Tools: Linux, MacOS, Windows
+	•	Google UX Design Professional Certificate
+Skills: UX research, wireframing, responsive design
+Tools: Figma, Adobe XD, Sketch
+	•	Machine Learning – Stanford University
+Skills: Data preparation, model building, evaluation
+Tools: TensorFlow, NumPy, Scikit-learn, Google Colab
+	•	Python Programming – University of Michigan
+Skills: Control structures, data types, functions, data structures
+Tools: IDLE, Jupyter Notebook
+	•	Introduction to Cybersecurity Tools & Cyber Attacks – IBM
+Skills: CIA Triad, cryptography, incident response
+Tools: Firewalls, digital forensics tools
+
+⸻
+
+EDUCATION
+
+University of Engineering & Management – Jaipur
+
+Bachelor of Technology in Computer Science Engineering
+Jul 2017 – Jun 2021 | Grade: A+
+Activities: Hackathon Team, Festival Organizer, Guitarist
+
+Umesh Chandra Basuhara Vidyalaya – Malda
+
+Higher Secondary – Computer Science
+Jan 2011 – Jun 2017 | Grade: A
+Activities: Cricket, Football, Guitarist
+
+Harishchandrapur High School – Malda
+
+Secondary – Science
+Jan 2009 – Dec 2010 | Grade: A+
+Activities: Running Club, Drummer
+
+⸻
