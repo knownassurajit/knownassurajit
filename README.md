@@ -5,16 +5,16 @@
 
 <p align="center">
   <a href="mailto:isurajit123@gmail.com">
-    <img src="https://img.shields.io/badge/Email-isurajit123%40gmail.com-D0BCFF?style=flat-square&logo=gmail&logoColor=381E72" alt="Email" />
+    <img src="https://img.shields.io/badge/Email-isurajit123%40gmail.com-0d1117?style=flat-square&logo=gmail&logoColor=2ea043" alt="Email" />
   </a>
   <a href="tel:+918670043341">
-    <img src="https://img.shields.io/badge/Phone-+91%208670043341-D0BCFF?style=flat-square&logo=whatsapp&logoColor=381E72" alt="Phone" />
+    <img src="https://img.shields.io/badge/Phone-+91%208670043341-0d1117?style=flat-square&logo=whatsapp&logoColor=2ea043" alt="Phone" />
   </a>
   <a href="https://www.linkedin.com/in/surajit-das-661186203/">
-    <img src="https://img.shields.io/badge/LinkedIn-Surajit%20Das-D0BCFF?style=flat-square&logo=linkedin&logoColor=381E72" alt="LinkedIn" />
+    <img src="https://img.shields.io/badge/LinkedIn-Surajit%20Das-0d1117?style=flat-square&logo=linkedin&logoColor=2ea043" alt="LinkedIn" />
   </a>
   <a href="#">
-    <img src="https://img.shields.io/badge/Portfolio-Website-D0BCFF?style=flat-square&logo=googlechrome&logoColor=381E72" alt="Portfolio" />
+    <img src="https://img.shields.io/badge/Portfolio-Website-0d1117?style=flat-square&logo=googlechrome&logoColor=2ea043" alt="Portfolio" />
   </a>
 </p>
 
@@ -110,6 +110,6 @@ Recent Activity dynamically generated using the GitHub API:
 
 <br/>
 <div align="center">
-  <img src="https://github-readme-stats-fast.vercel.app/api?username=knownassurajit&show_icons=true&theme=tokyonight&title_color=D0BCFF&icon_color=D0BCFF&text_color=E6E0E9&bg_color=211f26&hide_border=true&rank_icon=github" alt="GitHub Stats" />
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=knownassurajit&theme=tokyonight&background=211f26&ring=D0BCFF&fire=D0BCFF&currStreakLabel=E6E0E9&sideLabels=E6E0E9&currStreakNum=E6E0E9&sideNums=E6E0E9&dates=CAC4D0&hide_border=true" alt="GitHub Streak" />
+  <img src="https://github-readme-stats-fast.vercel.app/api?username=knownassurajit&show_icons=true&theme=transparent&title_color=2ea043&icon_color=2ea043&text_color=c9d1d9&bg_color=0d1117&hide_border=true&rank_icon=github" alt="GitHub Stats" />
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=knownassurajit&theme=transparent&background=0d1117&ring=2ea043&fire=2ea043&currStreakLabel=c9d1d9&sideLabels=c9d1d9&currStreakNum=c9d1d9&sideNums=c9d1d9&dates=8b949e&hide_border=true" alt="GitHub Streak" />
 </div>
