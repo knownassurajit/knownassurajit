@@ -1,21 +1,26 @@
 import urllib.request
 import os
 
+# Use monochrome (0d1117) and green (2ea043) theme with flat-square style
+theme = "0d1117"
+logo_color = "2ea043"
+style = "flat-square"
+
 badges = {
-    "python": "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white",
-    "cplusplus": "https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white",
-    "bash": "https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white",
-    "oracle": "https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white",
-    "postgresql": "https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white",
-    "mysql": "https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white",
-    "git": "https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white",
-    "jenkins": "https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white",
-    "powerbi": "https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black",
-    "tableau": "https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white",
-    "figma": "https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white",
-    "linux": "https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black",
-    "windows": "https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white",
-    "macos": "https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white"
+    "python": f"https://img.shields.io/badge/Python-{theme}?style={style}&logo=python&logoColor={logo_color}",
+    "cplusplus": f"https://img.shields.io/badge/C%2B%2B-{theme}?style={style}&logo=c%2B%2B&logoColor={logo_color}",
+    "bash": f"https://img.shields.io/badge/Bash-{theme}?style={style}&logo=gnu-bash&logoColor={logo_color}",
+    "oracle": f"https://img.shields.io/badge/Oracle-{theme}?style={style}&logo=oracle&logoColor={logo_color}",
+    "postgresql": f"https://img.shields.io/badge/PostgreSQL-{theme}?style={style}&logo=postgresql&logoColor={logo_color}",
+    "mysql": f"https://img.shields.io/badge/MySQL-{theme}?style={style}&logo=mysql&logoColor={logo_color}",
+    "git": f"https://img.shields.io/badge/Git-{theme}?style={style}&logo=git&logoColor={logo_color}",
+    "jenkins": f"https://img.shields.io/badge/Jenkins-{theme}?style={style}&logo=jenkins&logoColor={logo_color}",
+    "powerbi": f"https://img.shields.io/badge/Power_BI-{theme}?style={style}&logo=powerbi&logoColor={logo_color}",
+    "tableau": f"https://img.shields.io/badge/Tableau-{theme}?style={style}&logo=tableau&logoColor={logo_color}",
+    "figma": f"https://img.shields.io/badge/Figma-{theme}?style={style}&logo=figma&logoColor={logo_color}",
+    "linux": f"https://img.shields.io/badge/Linux-{theme}?style={style}&logo=linux&logoColor={logo_color}",
+    "windows": f"https://img.shields.io/badge/Windows-{theme}?style={style}&logo=windows&logoColor={logo_color}",
+    "macos": f"https://img.shields.io/badge/macOS-{theme}?style={style}&logo=apple&logoColor={logo_color}"
 }
 
 os.makedirs("assets", exist_ok=True)

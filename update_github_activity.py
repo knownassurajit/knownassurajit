@@ -91,7 +91,7 @@ def update_readme():
     with open("README.md", "r") as f:
         content = f.read()
 
-    contrib_md = "<table>\n  <tr>\n    <td>\n      <ul>\n"
+    contrib_md = "<table>\n  <tr>\n    <td style=\"border-bottom: 2px solid #2ea043;\">\n      <ul>\n"
     if contributions:
         for c in contributions:
             contrib_md += f"        <li>📅 <b>{c['date']}</b>: {c['description']} <a href='{c['url']}'>{c['repo']}</a></li>\n"
