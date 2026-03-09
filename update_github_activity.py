@@ -91,13 +91,13 @@ def update_readme():
     with open("README.md", "r") as f:
         content = f.read()
 
-    contrib_md = "<ul>\n"
+    contrib_md = "<table>\n  <tr>\n    <td>\n      <ul>\n"
     if contributions:
         for c in contributions:
-            contrib_md += f"  <li>📅 <b>{c['date']}</b>: {c['description']} <a href='{c['url']}'>{c['repo']}</a></li>\n"
+            contrib_md += f"        <li>📅 <b>{c['date']}</b>: {c['description']} <a href='{c['url']}'>{c['repo']}</a></li>\n"
     else:
-        contrib_md += "  <li>No recent activity found.</li>\n"
-    contrib_md += "</ul>"
+        contrib_md += "        <li>No recent activity found.</li>\n"
+    contrib_md += "      </ul>\n    </td>\n  </tr>\n</table>"
 
     stats_md = ""
     if stats:
