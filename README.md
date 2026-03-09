@@ -1,179 +1,228 @@
-<style>
-:root {
-  --md-sys-color-primary: #d0bcff;
-  --md-sys-color-on-primary: #381e72;
-  --md-sys-color-surface: #141218;
-  --md-sys-color-surface-container: #211f26;
-  --md-sys-color-surface-container-high: #2b2930;
-  --md-sys-color-outline: #938f99;
-  --md-sys-color-on-surface: #e6e0e9;
-  --md-sys-color-on-surface-variant: #cac4d0;
-}
+<div align="center">
 
-.mdw {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 12px;
-  color: var(--md-sys-color-on-surface);
-  font-family: Roboto, "Segoe UI", sans-serif;
-}
+# Surajit Das
+**Accomplished Database Engineer & Backend Developer**
 
-.mdw .hero,
-.mdw .card,
-.mdw .stats,
-.mdw .chips {
-  background: var(--md-sys-color-surface-container);
-  border: 1px solid var(--md-sys-color-outline);
-  border-radius: 28px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .35);
-}
+<p align="center">
+  <a href="mailto:isurajit123@gmail.com">
+    <img src="https://img.shields.io/badge/Email-isurajit123%40gmail.com-0d1117?style=flat-square&logo=gmail&logoColor=2ea043" alt="Email" />
+  </a>
+  <a href="tel:+918670043341">
+    <img src="https://img.shields.io/badge/Phone-+91%208670043341-0d1117?style=flat-square&logo=whatsapp&logoColor=2ea043" alt="Phone" />
+  </a>
+  <a href="https://www.linkedin.com/in/surajit-das-661186203/">
+    <img src="https://img.shields.io/badge/LinkedIn-Surajit%20Das-0d1117?style=flat-square&logo=linkedin&logoColor=2ea043" alt="LinkedIn" />
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Portfolio-Website-0d1117?style=flat-square&logo=googlechrome&logoColor=2ea043" alt="Portfolio" />
+  </a>
+</p>
 
-.mdw .hero {
-  text-align: center;
-  padding: 24px 20px;
-  margin: 12px 0 20px;
-}
+<!-- STATS_START -->
+**16** Public Repositories • **1** Followers • **3** Following
+<!-- STATS_END -->
 
-.mdw .title {
-  margin: 8px 0 0;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-}
+</div>
 
-.mdw .subtitle {
-  color: var(--md-sys-color-on-surface-variant);
-  margin-top: 8px;
-}
+<br />
 
-.mdw .chips {
-  margin-top: 16px;
-  padding: 12px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+### 🎯 Professional Summary
+> **Accomplished Database Engineer** with over 3 years of experience in designing, optimizing, and managing enterprise-grade databases. Demonstrated expertise in **PL/SQL, PostgreSQL, and MySQL** with a strong command of data migration, cloud deployment, and performance tuning.
+> <br/><br/>
+> Adept in Agile methodologies, DevOps principles, and cross-functional collaboration. Committed to developing scalable and secure systems, driven by a passion for emerging technologies, HCI, and sustainable software practices.
 
-.mdw .section-title {
-  margin: 24px 0 12px;
-  color: var(--md-sys-color-primary);
-}
+<hr/>
 
-.mdw .grid {
-  display: grid;
-  gap: 14px;
-}
+### 🧰 Technical Skills
 
-.mdw .journey { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.mdw .stack { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+<table>
+  <tr>
+    <td valign="top" width="50%" style="border-bottom: 2px solid #2ea043;">
+      <b>💻 Programming & DB</b><br/>
+      <p>Python, C/C++, Bash, SQL, PL/SQL<br/>Oracle, PostgreSQL, MySQL</p>
+      <img src="./assets/badge-python.svg" height="24" /> <img src="./assets/badge-cplusplus.svg" height="24" /> <img src="./assets/badge-bash.svg" height="24" /> <img src="./assets/badge-oracle.svg" height="24" /> <img src="./assets/badge-postgresql.svg" height="24" /> <img src="./assets/badge-mysql.svg" height="24" />
+    </td>
+    <td valign="top" width="50%" style="border-bottom: 2px solid #2ea043;">
+      <b>⚙️ DevOps & Tools</b><br/>
+      <p>Git, Jenkins, Linux, macOS, Windows</p>
+      <img src="./assets/badge-git.svg" height="24" /> <img src="./assets/badge-jenkins.svg" height="24" /> <img src="./assets/badge-linux.svg" height="24" /> <img src="./assets/badge-windows.svg" height="24" /> <img src="./assets/badge-macos.svg" height="24" />
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border-bottom: 2px solid #2ea043;">
+      <b>📊 Data Operations</b><br/>
+      <p>Data Modeling, ETL, Migration, Power BI, Tableau</p>
+      <img src="./assets/badge-powerbi.svg" height="24" /> <img src="./assets/badge-tableau.svg" height="24" />
+    </td>
+    <td valign="top" width="50%" style="border-bottom: 2px solid #2ea043;">
+      <b>🎨 UI/UX & Design</b><br/>
+      <p>Figma, Adobe XD, Sketch</p>
+      <img src="./assets/badge-figma.svg" height="24" />
+    </td>
+  </tr>
+</table>
 
-.mdw .card {
-  padding: 16px;
-}
+<hr/>
 
-.mdw .card h3 { margin: 0 0 8px; }
-.mdw .muted { color: var(--md-sys-color-on-surface-variant); }
+### 💼 Professional Experience
 
-.mdw .icon {
-  width: 36px;
-  height: 36px;
-  display: block;
-  margin-bottom: 8px;
-}
+<table>
+  <tr>
+    <td valign="top" width="50%" style="border-bottom: 2px solid #2ea043;">
+      <b>Bosch India</b><br/>
+      <i>Assistant Manager (Feb 2025 – Present)</i>
+      <ul>
+        <li>Led ETL development and Oracle SQL optimization for scalable BI systems.</li>
+        <li>Automated reporting pipelines and migrated BI dashboards, enhancing performance by 30%.</li>
+      </ul>
+    </td>
+    <td valign="top" width="50%" style="border-bottom: 2px solid #2ea043;">
+      <b>Adapt Ready</b><br/>
+      <i>Database Engineer (Nov 2024 – Jan 2025)</i>
+      <ul>
+        <li>Developed robust data pipelines and automated backup systems using shell scripts.</li>
+        <li>Achieved 80% reduction in manual database maintenance.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border-bottom: 2px solid #2ea043;">
+      <b>Walmart Global Tech India</b><br/>
+      <i>Backend Engineer</i>
+      <ul>
+        <li>Designed high-performance PL/SQL modules with CI/CD pipelines for real-time applications.</li>
+      </ul>
+    </td>
+    <td valign="top" width="50%" style="border-bottom: 2px solid #2ea043;">
+      <b>GE Renewables</b><br/>
+      <i>Database Developer</i>
+      <ul>
+        <li>Delivered PostgreSQL-driven analytics solutions for operational efficiency.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border-bottom: 2px solid #2ea043;">
+      <b>Tata Consultancy Services (TCS)</b><br/>
+      <i>PL/SQL Developer – TCS BaNCS (Oct 2021 – Nov 2024)</i>
+      <ul>
+        <li>Engineered scalable financial systems for BFSI clients.</li>
+        <li>Spearheaded a database migration from PostgreSQL to Oracle, enhancing retrieval speeds by 25%.</li>
+      </ul>
+    </td>
+    <td valign="top" width="50%" style="border-bottom: 2px solid #2ea043;">
+      <b>Wipro Limited</b><br/>
+      <i>Backend Engineer – Alight Solutions (May 2021 – Oct 2021)</i>
+      <ul>
+        <li>Managed core database operations, performance tuning, and data integrity assurance.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-.mdw .stats {
-  margin-top: 10px;
-  padding: 16px;
-}
+<hr/>
 
-.mdw .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 12px;
-}
+### 🛠️ Key Projects
 
-.mdw img.responsive {
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-}
+<table>
+  <tr>
+    <td width="33%" valign="top" style="border-bottom: 2px solid #2ea043;">
+      <b>Cloud Database Migration</b><br/>
+      Transitioned PostgreSQL data to Oracle; improved access speeds and optimized storage.
+    </td>
+    <td width="33%" valign="top" style="border-bottom: 2px solid #2ea043;">
+      <b>Automated Backup Solution</b><br/>
+      Bash-scripted system for daily incremental/full backups, integrated with cloud security.
+    </td>
+    <td width="33%" valign="top" style="border-bottom: 2px solid #2ea043;">
+      <b>Limit Order Book Engine</b><br/>
+      Implemented a data structure-based trading engine with order matching and execution logic.
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top" style="border-bottom: 2px solid #2ea043;">
+      <b>Facial Expression Recognition</b><br/>
+      Built using Python ML libraries; included training, evaluation, and deployment.
+    </td>
+    <td width="33%" valign="top" style="border-bottom: 2px solid #2ea043;">
+      <b>Calculator Application</b><br/>
+      Developed robust logic for I/O, error handling, and mathematical computations.
+    </td>
+    <td width="33%" valign="top" style="border-bottom: 2px solid #2ea043;">
+      <b>Personal Portfolio Website</b><br/>
+      Designed and hosted using GitHub Pages with CMS integration and responsive design.
+    </td>
+  </tr>
+</table>
 
-.mdw .social {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
+<hr/>
 
-@media (max-width: 640px) {
-  .mdw { padding: 8px; }
-  .mdw .hero { padding: 20px 12px; border-radius: 20px; }
-  .mdw .card { border-radius: 20px; }
-}
-</style>
+### 🏆 Certifications
 
-<div class="mdw">
-  <div class="hero">
-    <h1 class="title">👋 Hi, I'm Surajit Das</h1>
-    <p class="subtitle">Assistant Manager @ Bosch India • Data Engineering • Backend Systems</p>
-    <img src="./assets/typing-intro.svg" alt="Animated introduction" class="responsive" />
-    <div class="chips">
-      <img src="./assets/badge-role.svg" alt="Role badge" />
-      <img src="./assets/badge-company.svg" alt="Company badge" />
-      <img src="./assets/badge-focus.svg" alt="Focus badge" />
-    </div>
-  </div>
+<table>
+  <tr>
+    <td style="border-bottom: 2px solid #2ea043;">
+      <ul>
+        <li>🥇 <b>Google IT Support Professional Certificate</b> (OS administration, automation, security, troubleshooting)</li>
+        <li>🥇 <b>Google UX Design Professional Certificate</b> (UX research, wireframing, responsive design)</li>
+        <li>🥇 <b>Machine Learning – Stanford University</b> (Data preparation, model building, evaluation)</li>
+        <li>🥇 <b>Python Programming – University of Michigan</b> (Control structures, data types, functions)</li>
+        <li>🥇 <b>Introduction to Cybersecurity Tools & Cyber Attacks – IBM</b> (CIA Triad, cryptography, incident response)</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-  <h2 class="section-title">🎯 About Me</h2>
-  <div class="card">
-    I’m an <strong>Assistant Manager at Bosch India</strong> with 3+ years of experience in <strong>database engineering, ETL pipelines, and backend systems</strong>.
-    I focus on delivering reliable data platforms with clean, user-friendly design principles inspired by <strong>Material Design for the web</strong>.
-  </div>
+<hr/>
 
-  <h2 class="section-title">💼 Professional Journey</h2>
-  <div class="grid journey">
-    <div class="card"><h3>🚀 Bosch India</h3><p><strong>Assistant Manager</strong> <span class="muted">• Feb 2025 – Present</span></p><ul><li>Leading ETL development and Oracle SQL optimization.</li><li>Automated BI reporting pipelines and KPI standardization.</li></ul></div>
-    <div class="card"><h3>🔍 Adapt Ready</h3><p><strong>Database Engineer</strong> <span class="muted">• Nov 2024 – Jan 2025</span></p><ul><li>Built robust data pipelines and automated backups.</li><li>Reduced manual database maintenance by 80%.</li></ul></div>
-    <div class="card"><h3>🛍️ Walmart Global Tech India</h3><p><strong>Backend Engineer</strong></p><ul><li>Built PL/SQL modules with CI/CD for real-time apps.</li><li>Improved performance with test-first DB workflows.</li></ul></div>
-    <div class="card"><h3>⚡ GE Renewables</h3><p><strong>Database Developer</strong></p><ul><li>Delivered PostgreSQL analytics solutions.</li><li>Supported process optimization with SQL insights.</li></ul></div>
-    <div class="card"><h3>🏛️ Tata Consultancy Services</h3><p><strong>PL/SQL Developer – TCS BaNCS</strong> <span class="muted">• Oct 2021 – Nov 2024</span></p><ul><li>Built financial systems for BFSI clients.</li><li>Migrated PostgreSQL to Oracle with faster retrieval.</li></ul></div>
-    <div class="card"><h3>💻 Wipro Limited</h3><p><strong>Backend Engineer – Alight Solutions</strong> <span class="muted">• May 2021 – Oct 2021</span></p><ul><li>Managed core DB operations and tuning.</li><li>Strengthened compliant infrastructure delivery.</li></ul></div>
-  </div>
+### 🎓 Education
 
-  <h2 class="section-title">🧰 Tech Stack</h2>
-  <div class="grid stack">
-    <div class="card"><img src="./assets/icon-database.svg" alt="Database icon" class="icon" /><strong>Databases</strong><br/><span class="muted">Oracle • PostgreSQL • MySQL</span></div>
-    <div class="card"><img src="./assets/icon-backend.svg" alt="Backend icon" class="icon" /><strong>Backend</strong><br/><span class="muted">PL/SQL • SQL • Python • Bash</span></div>
-    <div class="card"><img src="./assets/icon-dataops.svg" alt="Data operations icon" class="icon" /><strong>Data Ops</strong><br/><span class="muted">ETL • Migration • Tuning • Automation</span></div>
-    <div class="card"><img src="./assets/icon-uiux.svg" alt="UI/UX icon" class="icon" /><strong>UI/UX</strong><br/><span class="muted">Material UI • Figma • UX Systems</span></div>
-  </div>
+<table>
+  <tr>
+    <td width="33%" valign="top" style="border-bottom: 2px solid #2ea043;">
+      <b>University of Engineering & Management – Jaipur</b><br/>
+      <i>B.Tech in Computer Science Engineering</i><br/>
+      Jul 2017 – Jun 2021
+      <p>✨ Hackathon Team, Festival Organizer, Guitarist</p>
+    </td>
+    <td width="33%" valign="top" style="border-bottom: 2px solid #2ea043;">
+      <b>Umesh Chandra Basuhara Vidyalaya – Malda</b><br/>
+      <i>Higher Secondary – Computer Science</i><br/>
+      Jan 2011 – Jun 2017
+      <p>✨ Cricket, Football, Guitarist</p>
+    </td>
+    <td width="33%" valign="top" style="border-bottom: 2px solid #2ea043;">
+      <b>Harishchandrapur High School – Malda</b><br/>
+      <i>Secondary – Science</i><br/>
+      Jan 2009 – Dec 2010
+      <p>✨ Running Club, Drummer</p>
+    </td>
+  </tr>
+</table>
 
-  <h2 class="section-title">🏆 Certifications</h2>
-  <div class="card">
-    <ul>
-      <li><strong>Google IT Support Professional Certificate</strong></li>
-      <li><strong>Google UX Design Professional Certificate</strong></li>
-      <li><strong>Machine Learning</strong> (Stanford University)</li>
-      <li><strong>Python Programming</strong> (University of Michigan)</li>
-      <li><strong>Cybersecurity Tools & Cyber Attacks</strong> (IBM)</li>
-    </ul>
-  </div>
+<hr/>
 
-  <h2 class="section-title">📈 GitHub Live Dashboard</h2>
-  <div class="stats">
-    <div class="stats-grid">
-      <img class="responsive" src="https://github-readme-stats.vercel.app/api?username=knownassurajit&show_icons=true&title_color=D0BCFF&icon_color=D0BCFF&text_color=E6E0E9&bg_color=211f26&hide_border=true&rank_icon=github" alt="GitHub stats" />
-      <img class="responsive" src="https://github-readme-streak-stats.herokuapp.com?user=knownassurajit&background=211f26&ring=D0BCFF&fire=D0BCFF&currStreakLabel=E6E0E9&sideLabels=E6E0E9&currStreakNum=E6E0E9&sideNums=E6E0E9&dates=CAC4D0&hide_border=true" alt="GitHub streak" />
-    </div>
-    <br/>
-    <img class="responsive" src="https://ghchart.rshah.org/d0bcff/knownassurajit" alt="Real-time GitHub contribution board" />
-    <br/><br/>
-    <img class="responsive" src="https://github-readme-activity-graph.vercel.app/graph?username=knownassurajit&bg_color=211f26&color=E6E0E9&line=D0BCFF&point=CAC4D0&area=true&hide_border=true" alt="GitHub activity graph" />
-  </div>
+### 📈 GitHub Contributions
+Recent Activity dynamically generated using the GitHub API:
 
-  <h2 class="section-title">🤝 Connect with Me</h2>
-  <div class="social">
-    <a href="mailto:isurajit123@gmail.com"><img src="./assets/badge-email.svg" alt="Email" /></a>
-    <a href="https://www.linkedin.com/in/surajit-das-661186203/"><img src="./assets/badge-linkedin.svg" alt="LinkedIn" /></a>
-  </div>
+<!-- CONTRIB_START -->
+<table>
+  <tr>
+    <td style="border-bottom: 2px solid #2ea043;">
+      <ul>
+        <li>📅 <b>March 09, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/knownassurajit'>knownassurajit/knownassurajit</a></li>
+        <li>📅 <b>March 09, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/knownassurajit'>knownassurajit/knownassurajit</a></li>
+        <li>📅 <b>March 09, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/knownassurajit'>knownassurajit/knownassurajit</a></li>
+        <li>📅 <b>March 09, 2026</b>: Labeled pull request in <a href='https://github.com/knownassurajit/knownassurajit'>knownassurajit/knownassurajit</a></li>
+        <li>📅 <b>March 09, 2026</b>: Assigned pull request in <a href='https://github.com/knownassurajit/knownassurajit'>knownassurajit/knownassurajit</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<!-- CONTRIB_END -->
 
-  <p class="muted" style="text-align:center; margin-top: 24px;"><sub>💡 Open to collaboration, data engineering opportunities, and meaningful conversations.</sub></p>
+<br/>
+<div align="center">
+  <img src="https://github-readme-stats-fast.vercel.app/api?username=knownassurajit&show_icons=true&theme=transparent&title_color=2ea043&icon_color=2ea043&text_color=c9d1d9&bg_color=0d1117&hide_border=true&rank_icon=github" alt="GitHub Stats" />
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=knownassurajit&theme=transparent&background=0d1117&ring=2ea043&fire=2ea043&currStreakLabel=c9d1d9&sideLabels=c9d1d9&currStreakNum=c9d1d9&sideNums=c9d1d9&dates=8b949e&hide_border=true" alt="GitHub Streak" />
 </div>
