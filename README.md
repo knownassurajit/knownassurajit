@@ -19,7 +19,7 @@
 </p>
 
 <!-- STATS_START -->
-**16** Public Repositories • **1** Followers • **4** Following
+**16** Public Repositories • **1** Followers • **5** Following
 <!-- STATS_END -->
 
 </div>
@@ -210,7 +210,11 @@ Recent Activity dynamically generated using the GitHub API:
   <tr>
     <td style="border-bottom: 2px solid #2ea043;">
       <ul>
-        <li>No recent activity found.</li>
+        <li>📅 <b>March 16, 2026</b>: Starred <a href='https://github.com/Leonxlnx/ghost-typer'>Leonxlnx/ghost-typer</a></li>
+        <li>📅 <b>March 16, 2026</b>: Starred <a href='https://github.com/Leonxlnx/prompt-library'>Leonxlnx/prompt-library</a></li>
+        <li>📅 <b>March 16, 2026</b>: Starred <a href='https://github.com/Leonxlnx/taste-skill'>Leonxlnx/taste-skill</a></li>
+        <li>📅 <b>March 14, 2026</b>: Closed pull request in <a href='https://github.com/NEHA-AMIN/pinelabs'>NEHA-AMIN/pinelabs</a></li>
+        <li>📅 <b>March 14, 2026</b>: Opened pull request in <a href='https://github.com/NEHA-AMIN/pinelabs'>NEHA-AMIN/pinelabs</a></li>
       </ul>
     </td>
   </tr>
