@@ -19,7 +19,7 @@
 </p>
 
 <!-- STATS_START -->
-**20** Public Repositories • **1** Followers • **5** Following
+**19** Public Repositories • **1** Followers • **5** Following
 <!-- STATS_END -->
 
 </div>
@@ -210,11 +210,11 @@ Recent Activity dynamically generated using the GitHub API:
   <tr>
     <td style="border-bottom: 2px solid #2ea043;">
       <ul>
-        <li>📅 <b>April 04, 2026</b>: Assigned pull request in <a href='https://github.com/knownassurajit/void'>knownassurajit/void</a></li>
-        <li>📅 <b>April 04, 2026</b>: Opened pull request in <a href='https://github.com/knownassurajit/void'>knownassurajit/void</a></li>
-        <li>📅 <b>April 04, 2026</b>: Created branch at <a href='https://github.com/knownassurajit/void'>knownassurajit/void</a></li>
-        <li>📅 <b>March 27, 2026</b>: Opened pull request in <a href='https://github.com/pilotmoon/Scroll-Reverser'>pilotmoon/Scroll-Reverser</a></li>
-        <li>📅 <b>March 27, 2026</b>: Merged pull request in <a href='https://github.com/knownassurajit/Scroll-Reverser'>knownassurajit/Scroll-Reverser</a></li>
+        <li>📅 <b>April 05, 2026</b>: Opened pull request in <a href='https://github.com/GeorgeClensy/Escape-Launcher'>GeorgeClensy/Escape-Launcher</a></li>
+        <li>📅 <b>April 05, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/Escape-Launcher'>knownassurajit/Escape-Launcher</a></li>
+        <li>📅 <b>April 05, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/Escape-Launcher'>knownassurajit/Escape-Launcher</a></li>
+        <li>📅 <b>April 05, 2026</b>: Merged pull request in <a href='https://github.com/knownassurajit/Escape-Launcher'>knownassurajit/Escape-Launcher</a></li>
+        <li>📅 <b>April 05, 2026</b>: Assigned pull request in <a href='https://github.com/knownassurajit/Escape-Launcher'>knownassurajit/Escape-Launcher</a></li>
       </ul>
     </td>
   </tr>
