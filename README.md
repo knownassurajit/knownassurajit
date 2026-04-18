@@ -19,7 +19,7 @@
 </p>
 
 <!-- STATS_START -->
-**18** Public Repositories • **1** Followers • **5** Following
+**19** Public Repositories • **1** Followers • **6** Following
 <!-- STATS_END -->
 
 </div>
@@ -210,11 +210,11 @@ Recent Activity dynamically generated using the GitHub API:
   <tr>
     <td style="border-bottom: 2px solid #2ea043;">
       <ul>
-        <li>📅 <b>April 05, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/Scroll-Reverser'>knownassurajit/Scroll-Reverser</a></li>
-        <li>📅 <b>April 05, 2026</b>: Merged pull request in <a href='https://github.com/knownassurajit/Scroll-Reverser'>knownassurajit/Scroll-Reverser</a></li>
-        <li>📅 <b>April 05, 2026</b>: Created branch at <a href='https://github.com/knownassurajit/Scroll-Reverser'>knownassurajit/Scroll-Reverser</a></li>
-        <li>📅 <b>April 05, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/Scroll-Reverser'>knownassurajit/Scroll-Reverser</a></li>
-        <li>📅 <b>April 05, 2026</b>: Merged pull request in <a href='https://github.com/knownassurajit/Scroll-Reverser'>knownassurajit/Scroll-Reverser</a></li>
+        <li>📅 <b>April 17, 2026</b>: Starred <a href='https://github.com/chenglou/pretext'>chenglou/pretext</a></li>
+        <li>📅 <b>April 17, 2026</b>: Starred <a href='https://github.com/santifer/career-ops'>santifer/career-ops</a></li>
+        <li>📅 <b>April 17, 2026</b>: Starred <a href='https://github.com/dinoy-raj/gemini-nano-playground'>dinoy-raj/gemini-nano-playground</a></li>
+        <li>📅 <b>April 17, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/void'>knownassurajit/void</a></li>
+        <li>📅 <b>April 17, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/void'>knownassurajit/void</a></li>
       </ul>
     </td>
   </tr>
