@@ -19,7 +19,7 @@
 </p>
 
 <!-- STATS_START -->
-
+**18** Public Repositories • **2** Followers • **6** Following
 <!-- STATS_END -->
 
 </div>
