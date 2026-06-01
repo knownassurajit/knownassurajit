@@ -1,9 +1,10 @@
 import urllib.request
 import os
 
-# Use monochrome (0d1117) and green (2ea043) theme with flat-square style
-theme = "0d1117"
-logo_color = "2ea043"
+# Portfolio palette: near-black (0A0A0A) background with emerald (34D399) logos,
+# matching the surajitdas.vercel.app design system. Flat-square style.
+theme = "0A0A0A"
+logo_color = "34D399"
 style = "flat-square"
 
 badges = {
