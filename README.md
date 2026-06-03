@@ -19,7 +19,7 @@
 </p>
 
 <!-- STATS_START -->
-**17** Public Repositories • **2** Followers • **6** Following
+**17** Public Repositories • **3** Followers • **6** Following
 <!-- STATS_END -->
 
 </div>
@@ -211,10 +211,10 @@ Recent Activity dynamically generated using the GitHub API:
     <td style="border-bottom: 2px solid #2ea043;">
       <ul>
         <li>📅 <b>June 02, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/clndr'>knownassurajit/clndr</a></li>
+        <li>📅 <b>June 02, 2026</b>: Closed pull request in <a href='https://github.com/knownassurajit/clndr'>knownassurajit/clndr</a></li>
         <li>📅 <b>June 02, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/clndr'>knownassurajit/clndr</a></li>
-        <li>📅 <b>May 31, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/clndr'>knownassurajit/clndr</a></li>
-        <li>📅 <b>May 31, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/clndr'>knownassurajit/clndr</a></li>
-        <li>📅 <b>May 31, 2026</b>: Merged pull request in <a href='https://github.com/knownassurajit/clndr'>knownassurajit/clndr</a></li>
+        <li>📅 <b>June 02, 2026</b>: Merged pull request in <a href='https://github.com/knownassurajit/clndr'>knownassurajit/clndr</a></li>
+        <li>📅 <b>June 02, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/clndr'>knownassurajit/clndr</a></li>
       </ul>
     </td>
   </tr>
