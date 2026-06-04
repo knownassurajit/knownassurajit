@@ -30,7 +30,7 @@
 <img src="./assets/stat-overview.svg" width="520" alt="Profile overview — 17 repositories · 3 followers · 6 following" />
 
 <!-- STATS_START -->
-`17` repositories &nbsp;&middot;&nbsp; `3` followers &nbsp;&middot;&nbsp; `6` following
+**17** Public Repositories • **3** Followers • **6** Following
 <!-- STATS_END -->
 
 </div>
@@ -166,11 +166,11 @@ Recent activity, refreshed every 12 hours via the GitHub API:
   <tr>
     <td>
       <ul>
-        <li>📦 <b>Jun 02, 2026</b> &nbsp;Pushed to <code>master</code> on <b>clndr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/clndr'>repo &#8599;</a></li>
-        <li>🔀 <b>Jun 02, 2026</b> &nbsp;Opened pull request in <b>clndr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/clndr'>repo &#8599;</a></li>
-        <li>🗑️ <b>Jun 02, 2026</b> &nbsp;Deleted branch in <b>clndr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/clndr'>repo &#8599;</a></li>
-        <li>✨ <b>May 30, 2026</b> &nbsp;Created branch in <b>impstr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/impstr'>repo &#8599;</a></li>
-        <li>📦 <b>May 26, 2026</b> &nbsp;Pushed to <code>main</code> on <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo &#8599;</a></li>
+        <li>📅 <b>June 02, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/clndr'>knownassurajit/clndr</a></li>
+        <li>📅 <b>June 02, 2026</b>: Closed pull request in <a href='https://github.com/knownassurajit/clndr'>knownassurajit/clndr</a></li>
+        <li>📅 <b>June 02, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/clndr'>knownassurajit/clndr</a></li>
+        <li>📅 <b>June 02, 2026</b>: Merged pull request in <a href='https://github.com/knownassurajit/clndr'>knownassurajit/clndr</a></li>
+        <li>📅 <b>June 02, 2026</b>: Pushed 0 commit(s) to <a href='https://github.com/knownassurajit/clndr'>knownassurajit/clndr</a></li>
       </ul>
     </td>
   </tr>
