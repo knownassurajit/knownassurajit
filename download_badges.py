@@ -1,10 +1,10 @@
 import urllib.request
 import os
 
-# Portfolio palette: near-black (0A0A0A) background with emerald (34D399) logos,
-# matching the surajitdas.vercel.app design system. Flat-square style.
-theme = "0A0A0A"
-logo_color = "34D399"
+# Atlassian Design System (dark theme): raised surface (#22272B) background with
+# brand-blue (#579DFF) logos. Flat-square keeps the ADS flat aesthetic.
+theme = "22272B"
+logo_color = "579DFF"
 style = "flat-square"
 
 badges = {
@@ -21,7 +21,13 @@ badges = {
     "figma": f"https://img.shields.io/badge/Figma-{theme}?style={style}&logo=figma&logoColor={logo_color}",
     "linux": f"https://img.shields.io/badge/Linux-{theme}?style={style}&logo=linux&logoColor={logo_color}",
     "windows": f"https://img.shields.io/badge/Windows-{theme}?style={style}&logo=windows&logoColor={logo_color}",
-    "macos": f"https://img.shields.io/badge/macOS-{theme}?style={style}&logo=apple&logoColor={logo_color}"
+    "macos": f"https://img.shields.io/badge/macOS-{theme}?style={style}&logo=apple&logoColor={logo_color}",
+    "kotlin": f"https://img.shields.io/badge/Kotlin-{theme}?style={style}&logo=kotlin&logoColor={logo_color}",
+    "react": f"https://img.shields.io/badge/React-{theme}?style={style}&logo=react&logoColor={logo_color}",
+    "nextjs": f"https://img.shields.io/badge/Next.js-{theme}?style={style}&logo=nextdotjs&logoColor={logo_color}",
+    "tailwind": f"https://img.shields.io/badge/Tailwind_CSS-{theme}?style={style}&logo=tailwindcss&logoColor={logo_color}",
+    "compose": f"https://img.shields.io/badge/Jetpack_Compose-{theme}?style={style}&logo=jetpackcompose&logoColor={logo_color}",
+    "sketch": f"https://img.shields.io/badge/Sketch-{theme}?style={style}&logo=sketch&logoColor={logo_color}"
 }
 
 os.makedirs("assets", exist_ok=True)
