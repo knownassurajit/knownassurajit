@@ -21,7 +21,7 @@
                     dur='3800ms' fill='remove'
                     values='m0,25 h0 ; m0,25 h600 ; m0,25 h600 ; m0,25 h0' keyTimes='0;0.63157894736842;0.84210526315789;1' />
                     </path>
-    <text font-family='"Inter", monospace' fill='#58A6FF' font-size='24'
+    <text font-family='"Inter", monospace' fill='#34D399' font-size='24'
         dominant-baseline='middle'
         x='50%' text-anchor='middle'
         letter-spacing='normal'>
@@ -35,7 +35,7 @@
                     dur='3800ms' fill='remove'
                     values='m0,25 h0 ; m0,25 h600 ; m0,25 h600 ; m0,25 h0' keyTimes='0;0.63157894736842;0.84210526315789;1' />
                     </path>
-    <text font-family='"Inter", monospace' fill='#58A6FF' font-size='24'
+    <text font-family='"Inter", monospace' fill='#34D399' font-size='24'
         dominant-baseline='middle'
         x='50%' text-anchor='middle'
         letter-spacing='normal'>
@@ -49,7 +49,7 @@
                     dur='3800ms' fill='remove'
                     values='m0,25 h0 ; m0,25 h600 ; m0,25 h600 ; m0,25 h0' keyTimes='0;0.63157894736842;0.84210526315789;1' />
                     </path>
-    <text font-family='"Inter", monospace' fill='#58A6FF' font-size='24'
+    <text font-family='"Inter", monospace' fill='#34D399' font-size='24'
         dominant-baseline='middle'
         x='50%' text-anchor='middle'
         letter-spacing='normal'>
