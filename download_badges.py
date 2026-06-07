@@ -1,5 +1,9 @@
 import urllib.request
 import os
+import ssl
+
+# Bypass SSL certificate verification issues on macOS python
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # Atlassian Design System (dark theme): raised surface (#22272B) background with
 # brand-blue (#579DFF) logos. Flat-square keeps the ADS flat aesthetic.
@@ -27,7 +31,16 @@ badges = {
     "nextjs": f"https://img.shields.io/badge/Next.js-{theme}?style={style}&logo=nextdotjs&logoColor={logo_color}",
     "tailwind": f"https://img.shields.io/badge/Tailwind_CSS-{theme}?style={style}&logo=tailwindcss&logoColor={logo_color}",
     "compose": f"https://img.shields.io/badge/Jetpack_Compose-{theme}?style={style}&logo=jetpackcompose&logoColor={logo_color}",
-    "sketch": f"https://img.shields.io/badge/Sketch-{theme}?style={style}&logo=sketch&logoColor={logo_color}"
+    "sketch": f"https://img.shields.io/badge/Sketch-{theme}?style={style}&logo=sketch&logoColor={logo_color}",
+    "portfolio": f"https://img.shields.io/badge/Portfolio-{theme}?style={style}&logo=vercel&logoColor={logo_color}",
+    "email": f"https://img.shields.io/badge/Email-{theme}?style={style}&logo=gmail&logoColor={logo_color}",
+    "linkedin": f"https://img.shields.io/badge/LinkedIn-{theme}?style={style}&logo=linkedin&logoColor={logo_color}",
+    "github": f"https://img.shields.io/badge/GitHub-{theme}?style={style}&logo=github&logoColor={logo_color}",
+    "x": f"https://img.shields.io/badge/X-{theme}?style={style}&logo=x&logoColor={logo_color}",
+    "instagram": f"https://img.shields.io/badge/Instagram-{theme}?style={style}&logo=instagram&logoColor={logo_color}",
+    "behance": f"https://img.shields.io/badge/Behance-{theme}?style={style}&logo=behance&logoColor={logo_color}",
+    "pinterest": f"https://img.shields.io/badge/Pinterest-{theme}?style={style}&logo=pinterest&logoColor={logo_color}",
+    "spotify": f"https://img.shields.io/badge/Spotify-{theme}?style={style}&logo=spotify&logoColor={logo_color}"
 }
 
 os.makedirs("assets", exist_ok=True)

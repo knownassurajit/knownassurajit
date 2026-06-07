@@ -19,6 +19,10 @@ import json
 from datetime import datetime, timezone
 import os
 import re
+import ssl
+
+# Bypass SSL certificate verification issues on macOS python
+ssl._create_default_https_context = ssl._create_unverified_context
 
 USERNAME = "knownassurajit"
 TOKEN = os.environ.get("GITHUB_TOKEN")
@@ -197,17 +201,17 @@ def build_stat_card(stats):
 
 
 def render_activity(contributions):
-    rows = "<table>\n  <tr>\n    <td>\n      <ul>\n"
+    rows = "<ul>\n"
     if contributions:
         for c in contributions:
             rows += (
-                f"        <li>{c['icon']} <b>{c['date']}</b> &nbsp;"
+                f"  <li>{c['icon']} <b>{c['date']}</b> &nbsp;"
                 f"{c['text']} &nbsp;&middot;&nbsp; "
                 f"<a href='{c['repo_url']}'>repo &#8599;</a></li>\n"
             )
     else:
-        rows += "        <li>No recent public activity.</li>\n"
-    rows += "      </ul>\n    </td>\n  </tr>\n</table>"
+        rows += "  <li>No recent public activity.</li>\n"
+    rows += "</ul>"
     return rows
 
 

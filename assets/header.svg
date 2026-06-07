@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 720 135" width="100%" height="135" style="max-width: 720px; background-color: transparent;" role="img" aria-label="Surajit Das - Assistant Manager &amp; Database Engineer">
+    <style>
+        .title {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            fill: #579DFF;
+        }
+        .subtitle {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            fill: #9FADBC;
+        }
+        .typing-text {
+            font-family: ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 14px;
+            font-weight: 600;
+            fill: #00C7E4;
+        }
+    </style>
+
+    <!-- Background card -->
+    <rect x="0.5" y="0.5" width="719" height="134" rx="10" fill="#22272B" stroke="#2C333A" stroke-width="1"/>
+    
+    <!-- Accent indicator bar on the left side (Atlassian brand blue) -->
+    <rect x="0.5" y="0.5" width="4" height="134" rx="2" fill="#0C66E4"/>
+
+    <!-- Static Name -->
+    <text x="30" y="44" class="title">Surajit Das</text>
+    
+    <!-- Static Role -->
+    <text x="30" y="74" class="subtitle">Assistant Manager · Business Intelligence · Bosch India</text>
+
+    <!-- Dynamic Typing Animation Lines -->
+    <!-- Line 1: Database Engineer -->
+    <path id="path0" d="m30,104 h0" fill="none">
+        <animate id="d0" attributeName="d" begin="0s;d2.end" dur="4500ms" fill="remove" 
+                 values="m30,104 h0 ; m30,104 h600 ; m30,104 h600 ; m30,104 h0" 
+                 keyTimes="0;0.6;0.9;1" />
+    </path>
+    <text class="typing-text">
+        <textPath xlink:href="#path0">Database Engineer | ETL | SQL Optimization</textPath>
+    </text>
+
+    <!-- Line 2: Manufacturing KPI dashboards -->
+    <path id="path1" d="m30,104 h0" fill="none">
+        <animate id="d1" attributeName="d" begin="d0.end" dur="4500ms" fill="remove" 
+                 values="m30,104 h0 ; m30,104 h600 ; m30,104 h600 ; m30,104 h0" 
+                 keyTimes="0;0.6;0.9;1" />
+    </path>
+    <text class="typing-text">
+        <textPath xlink:href="#path1">Manufacturing KPI dashboards &amp; core-banking data</textPath>
+    </text>
+
+    <!-- Line 3: Building scalable, beautiful data systems -->
+    <path id="path2" d="m30,104 h0" fill="none">
+        <animate id="d2" attributeName="d" begin="d1.end" dur="4500ms" fill="remove" 
+                 values="m30,104 h0 ; m30,104 h600 ; m30,104 h600 ; m30,104 h0" 
+                 keyTimes="0;0.6;0.9;1" />
+    </path>
+    <text class="typing-text">
+        <textPath xlink:href="#path2">Building scalable, beautiful data systems</textPath>
+    </text>
+</svg>
