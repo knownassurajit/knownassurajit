@@ -25,7 +25,7 @@
 <img src="./assets/stat-overview.svg" width="520" alt="Profile overview" />
 
 <!-- STATS_START -->
-`17` repositories &nbsp;&middot;&nbsp; `3` followers &nbsp;&middot;&nbsp; `6` following
+`18` repositories &nbsp;&middot;&nbsp; `3` followers &nbsp;&middot;&nbsp; `6` following
 <!-- STATS_END -->
 
 </div>
@@ -187,11 +187,11 @@ Recent activity, refreshed every 12 hours via the GitHub API:
 
 <!-- CONTRIB_START -->
 <ul>
-  <li>⭐ <b>Jun 05, 2026</b> &nbsp;Starred <b>markitdown</b> &nbsp;&middot;&nbsp; <a href='https://github.com/microsoft/markitdown'>repo &#8599;</a></li>
-  <li>🗑️ <b>Jun 04, 2026</b> &nbsp;Deleted branch in <b>clndr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/clndr'>repo &#8599;</a></li>
-  <li>🔀 <b>Jun 04, 2026</b> &nbsp;Labeled pull request #4 in <b>clndr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/clndr'>repo &#8599;</a></li>
-  <li>🔀 <b>Jun 04, 2026</b> &nbsp;Opened pull request #4 in <b>clndr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/clndr'>repo &#8599;</a></li>
-  <li>🔀 <b>Jun 04, 2026</b> &nbsp;Assigned pull request #4 in <b>clndr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/clndr'>repo &#8599;</a></li>
+  <li>📦 <b>Jun 11, 2026</b> &nbsp;Pushed to <code>master</code> on <b>dvide</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/dvide'>repo &#8599;</a></li>
+  <li>📦 <b>Jun 07, 2026</b> &nbsp;Pushed to <code>master</code> on <b>impstr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/impstr'>repo &#8599;</a></li>
+  <li>📦 <b>Jun 07, 2026</b> &nbsp;Pushed to <code>develop</code> on <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo &#8599;</a></li>
+  <li>📦 <b>Jun 07, 2026</b> &nbsp;Pushed to <code>master</code> on <b>knownassurajit</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/knownassurajit'>repo &#8599;</a></li>
+  <li>📦 <b>Jun 07, 2026</b> &nbsp;Pushed to <code>master</code> on <b>dvide</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/dvide'>repo &#8599;</a></li>
 </ul>
 <!-- CONTRIB_END -->
 
