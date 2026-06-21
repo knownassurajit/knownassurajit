@@ -4,6 +4,12 @@
 
 <br />
 
+<img src="https://img.shields.io/badge/%E2%97%8F_STATUS-Open_to_collaboration-1A73E8?style=flat-square&labelColor=303134" alt="Status: open to collaboration" />
+
+<br />
+<br />
+
+
 <a href="https://surajitdas.vercel.app"><img src="./assets/badge-portfolio.svg" alt="Portfolio" /></a>
 <a href="mailto:isurajit123@gmail.com"><img src="./assets/badge-email.svg" alt="Email" /></a>
 <a href="https://linkedin.com/in/knownassurajit/"><img src="./assets/badge-linkedin.svg" alt="LinkedIn" /></a>
@@ -114,7 +120,30 @@
 
 ---
 
-## Activity
+<h2><img src="./assets/icon-activity.svg" height="22" valign="middle" alt="" />&nbsp; GitHub Activity</h2>
+
+<div align="center">
+
+<table border="0" align="center" style="border: none; border-collapse: collapse; background: transparent;">
+  <tr style="border: none; background: transparent;">
+    <td align="center" style="border: none; padding: 5px; background: transparent;">
+      <img src="https://github-readme-stats.vercel.app/api?username=knownassurajit&show_icons=true&hide_border=true&theme=transparent&title_color=1A73E8&icon_color=1A73E8&text_color=E8EAED&bg_color=202124&rank_icon=github" height="165" alt="GitHub Stats" />
+    </td>
+    <td align="center" style="border: none; padding: 5px; background: transparent;">
+      <img src="https://github-readme-streak-stats.herokuapp.com?user=knownassurajit&hide_border=true&background=202124&ring=1A73E8&fire=1A73E8&currStreakLabel=BDC1C6&sideLabels=BDC1C6&currStreakNum=E8EAED&sideNums=E8EAED&dates=BDC1C6&stroke=1A73E8" height="165" alt="GitHub Streak" />
+    </td>
+  </tr>
+  <tr style="border: none; background: transparent;">
+    <td align="center" colspan="2" style="border: none; padding: 5px; background: transparent;">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=knownassurajit&layout=compact&hide_border=true&theme=transparent&title_color=1A73E8&text_color=E8EAED&bg_color=202124" height="165" alt="Top Languages" />
+    </td>
+  </tr>
+</table>
+
+</div>
+
+<br />
+
 
 Recent activity, refreshed every 12 hours via the GitHub API:
 

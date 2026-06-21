@@ -1,6 +1,6 @@
 """
-Refreshes the profile README with live GitHub data and regenerates token-driven
-stat cards (overview + languages).
+Refreshes the profile README with live GitHub data and regenerates the
+token-driven "Profile Overview" stat card.
 
   * PushEvent payloads from /events/public carry no `commits`/`size` array,
     so the old "Pushed N commit(s)" always printed 0. We now derive the
@@ -23,48 +23,26 @@ from datetime import datetime, timezone
 
 from design_tokens import layout, token
 
+from design_tokens import token
+
+# Bypass SSL certificate verification issues on macOS python
 ssl._create_default_https_context = ssl._create_unverified_context
 
 USERNAME = "knownassurajit"
 TOKEN = os.environ.get("GITHUB_TOKEN")
 API = "https://api.github.com"
 
+# ---- Shared profile design tokens ---------------------------------------
+# These semantic aliases keep the stat card readable while sourcing every color
+# from design_tokens.py, the profile asset source of truth.
 SURFACE = token("surface")
 SURFACE_VARIANT = token("surface_variant")
 BORDER = token("outline")
 TEXT = token("on_surface")
 TEXT_SUBTLE = token("on_surface_variant")
+TEXT_FAINT = token("on_surface_variant")
 ACCENT = token("primary")
-ACCENT_RAIL = token("primary_container")
-
-CARD_W = layout("card_width")
-CARD_H = layout("card_height")
-CARD_RADIUS = layout("card_radius")
-INSET = layout("content_inset")
-
-MONO = "ui-monospace,'JetBrains Mono',SFMono-Regular,Menlo,monospace"
-SANS = "system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
-
-LANG_COLORS = {
-    "Python": "#3572A5",
-    "Kotlin": "#A97BFF",
-    "JavaScript": "#F1E05A",
-    "TypeScript": "#3178C6",
-    "Java": "#B07219",
-    "C++": "#F34B7D",
-    "Shell": "#89E051",
-    "HTML": "#E34C26",
-    "CSS": "#563D7C",
-    "Go": "#00ADD8",
-    "Rust": "#DEA584",
-    "Ruby": "#701516",
-    "Swift": "#F05138",
-    "Dart": "#00B4AB",
-    "C": "#555555",
-    "PHP": "#4F5D95",
-    "R": "#198CE7",
-    "Scala": "#C22D40",
-}
+ACCENT_TEXT = token("primary")
 
 
 def _request(url):
@@ -215,6 +193,7 @@ def _card_frame(w, h, title, aria_label):
 
 
 def build_stat_card(stats):
+    """Token-driven 'Profile Overview' card with the live counts."""
     cols = [
         (stats.get("repos", 0), "REPOSITORIES"),
         (stats.get("followers", 0), "FOLLOWERS"),
