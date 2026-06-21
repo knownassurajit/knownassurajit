@@ -7,7 +7,6 @@
 <img src="https://img.shields.io/badge/%E2%97%8F_STATUS-Open_to_collaboration-0C66E4?style=flat-square&labelColor=1D2125" alt="Status: open to collaboration" />
 
 <br />
-<br />
 
 <a href="https://surajitdas.vercel.app"><img src="./assets/badge-portfolio.svg" alt="Portfolio" /></a>
 <a href="mailto:isurajit123@gmail.com"><img src="./assets/badge-email.svg" alt="Email" /></a>
@@ -19,7 +18,6 @@
 <a href="https://in.pinterest.com/knownassurajit/"><img src="./assets/badge-pinterest.svg" alt="Pinterest" /></a>
 <a href="https://open.spotify.com/user/surajithere?si=e2acb8aa786244d4"><img src="./assets/badge-spotify.svg" alt="Spotify" /></a>
 
-<br />
 <br />
 
 <img src="./assets/stat-overview.svg" width="520" alt="Profile overview" />
@@ -99,8 +97,6 @@
 | `02` | **Supply Chain Risk DB** | PostgreSQL · PL/pgSQL · Python |
 | `03` | **Core Banking Pipeline** | PostgreSQL · Oracle · BaNCS |
 
-<br />
-
 **Selected Projects**
 
 | Project | What it is | Stack |
@@ -121,8 +117,6 @@
 | Nov 2024 — Jan 2025 | **Senior Database Engineer** | Adapt Ready |
 | Oct 2021 — Nov 2024 | **Senior System Engineer** | Tata Consultancy Services |
 | May 2021 — Oct 2021 | **Project Engineer** | Wipro |
-
-<br />
 
 **Selected impact**
 
@@ -153,8 +147,6 @@
 | **Umesh Chandra Basuhara Vidyalaya, Malda** | Higher Secondary — Computer Science | 2011 — 2017 |
 | **Harishchandrapur High School, Malda** | Secondary — Science | 2009 — 2010 |
 
-<br />
-
 <sub><i>Beyond the desk — guitarist & drummer, cricket and football, hackathons, and festival organizing.</i></sub>
 
 ---
@@ -181,8 +173,6 @@
 
 </div>
 
-<br />
-
 Recent activity, refreshed every 12 hours via the GitHub API:
 
 <!-- CONTRIB_START -->
@@ -205,7 +195,6 @@ Recent activity, refreshed every 12 hours via the GitHub API:
 
 <a href="mailto:isurajit123@gmail.com"><img src="./assets/badge-email.svg" alt="Email Surajit" /></a>
 
-<br />
 <br />
 
 <sub>KNOWNASSURAJIT // PROFILE_README · LAT 12.97&deg;N · LON 77.59&deg;E · &copy; 2026</sub>
