@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/header.svg" width="720" alt="Surajit Das - Assistant Manager, Business Intelligence, Bosch India" />
+<img src="./assets/header.svg" width="720" height="auto" alt="Surajit Das - Assistant Manager, Business Intelligence, Bosch India" />
 
 <br />
 
@@ -22,7 +22,7 @@
 <br />
 <br />
 
-<img src="./assets/stat-overview.svg" width="520" alt="Profile overview" />
+<img src="./assets/stat-overview.svg" width="720" height="auto" alt="Profile overview" />
 
 <!-- STATS_START -->
 `18` repositories &nbsp;&middot;&nbsp; `3` followers &nbsp;&middot;&nbsp; `6` following
