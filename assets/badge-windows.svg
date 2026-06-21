@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="59" height="20" role="img" aria-label="Windows"><title>Windows</title><g shape-rendering="crispEdges"><rect width="0" height="20" fill="#22272b"/><rect x="0" width="59" height="20" fill="#22272b"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text x="295" y="140" transform="scale(.1)" fill="#fff" textLength="490">Windows</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="28" viewBox="0 0 70 28" role="img" aria-label="Windows">
+  <title>Windows</title>
+  <rect width="70" height="28" rx="14" fill="#22272B" />
+  <text x="12" y="50%" dy="0.35em" fill="#F7F8F9" font-family="system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif" font-size="12" font-weight="600">Windows</text>
+</svg>

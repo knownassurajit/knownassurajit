@@ -1,55 +1,127 @@
-import urllib.request
-import os
-import ssl
+from __future__ import annotations
 
-# Bypass SSL certificate verification issues on macOS python
-ssl._create_default_https_context = ssl._create_unverified_context
+import html
+import re
+from pathlib import Path
 
-# Atlassian Design System (dark theme): raised surface (#22272B) background with
-# brand-blue (#579DFF) logos. Flat-square keeps the ADS flat aesthetic.
-theme = "22272B"
-logo_color = "579DFF"
-style = "flat-square"
+ASSET_DIR = Path("assets")
+BADGE_PATTERN = "badge-*.svg"
 
-badges = {
-    "python": f"https://img.shields.io/badge/Python-{theme}?style={style}&logo=python&logoColor={logo_color}",
-    "cplusplus": f"https://img.shields.io/badge/C%2B%2B-{theme}?style={style}&logo=c%2B%2B&logoColor={logo_color}",
-    "bash": f"https://img.shields.io/badge/Bash-{theme}?style={style}&logo=gnu-bash&logoColor={logo_color}",
-    "oracle": f"https://img.shields.io/badge/Oracle-{theme}?style={style}&logo=oracle&logoColor={logo_color}",
-    "postgresql": f"https://img.shields.io/badge/PostgreSQL-{theme}?style={style}&logo=postgresql&logoColor={logo_color}",
-    "mysql": f"https://img.shields.io/badge/MySQL-{theme}?style={style}&logo=mysql&logoColor={logo_color}",
-    "git": f"https://img.shields.io/badge/Git-{theme}?style={style}&logo=git&logoColor={logo_color}",
-    "jenkins": f"https://img.shields.io/badge/Jenkins-{theme}?style={style}&logo=jenkins&logoColor={logo_color}",
-    "powerbi": f"https://img.shields.io/badge/Power_BI-{theme}?style={style}&logo=powerbi&logoColor={logo_color}",
-    "tableau": f"https://img.shields.io/badge/Tableau-{theme}?style={style}&logo=tableau&logoColor={logo_color}",
-    "figma": f"https://img.shields.io/badge/Figma-{theme}?style={style}&logo=figma&logoColor={logo_color}",
-    "linux": f"https://img.shields.io/badge/Linux-{theme}?style={style}&logo=linux&logoColor={logo_color}",
-    "windows": f"https://img.shields.io/badge/Windows-{theme}?style={style}&logo=windows&logoColor={logo_color}",
-    "macos": f"https://img.shields.io/badge/macOS-{theme}?style={style}&logo=apple&logoColor={logo_color}",
-    "kotlin": f"https://img.shields.io/badge/Kotlin-{theme}?style={style}&logo=kotlin&logoColor={logo_color}",
-    "react": f"https://img.shields.io/badge/React-{theme}?style={style}&logo=react&logoColor={logo_color}",
-    "nextjs": f"https://img.shields.io/badge/Next.js-{theme}?style={style}&logo=nextdotjs&logoColor={logo_color}",
-    "tailwind": f"https://img.shields.io/badge/Tailwind_CSS-{theme}?style={style}&logo=tailwindcss&logoColor={logo_color}",
-    "compose": f"https://img.shields.io/badge/Jetpack_Compose-{theme}?style={style}&logo=jetpackcompose&logoColor={logo_color}",
-    "sketch": f"https://img.shields.io/badge/Sketch-{theme}?style={style}&logo=sketch&logoColor={logo_color}",
-    "portfolio": f"https://img.shields.io/badge/Portfolio-{theme}?style={style}&logo=vercel&logoColor={logo_color}",
-    "email": f"https://img.shields.io/badge/Email-{theme}?style={style}&logo=gmail&logoColor={logo_color}",
-    "linkedin": f"https://img.shields.io/badge/LinkedIn-{theme}?style={style}&logo=linkedin&logoColor={logo_color}",
-    "github": f"https://img.shields.io/badge/GitHub-{theme}?style={style}&logo=github&logoColor={logo_color}",
-    "x": f"https://img.shields.io/badge/X-{theme}?style={style}&logo=x&logoColor={logo_color}",
-    "instagram": f"https://img.shields.io/badge/Instagram-{theme}?style={style}&logo=instagram&logoColor={logo_color}",
-    "behance": f"https://img.shields.io/badge/Behance-{theme}?style={style}&logo=behance&logoColor={logo_color}",
-    "pinterest": f"https://img.shields.io/badge/Pinterest-{theme}?style={style}&logo=pinterest&logoColor={logo_color}",
-    "spotify": f"https://img.shields.io/badge/Spotify-{theme}?style={style}&logo=spotify&logoColor={logo_color}"
+# Shared chip design tokens keep every generated badge visually consistent. The
+# palette follows the existing dark Atlassian-inspired README theme while using
+# the brighter foregrounds needed for readable Material-style chips.
+CHIP_HEIGHT = 28
+CHIP_RADIUS = CHIP_HEIGHT // 2
+LEFT_PADDING = 12
+ICON_SIZE = 16
+ICON_LABEL_GAP = 8
+RIGHT_PADDING = 12
+FONT_SIZE = 12
+FONT_FAMILY = 'system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif'
+BACKGROUND = "#22272B"
+FOREGROUND = "#F7F8F9"
+ICON_COLOR = "#579DFF"
+
+BADGES = {
+    "bash": "Bash",
+    "behance": "Behance",
+    "company": "COMPANY: BOSCH INDIA",
+    "compose": "Jetpack Compose",
+    "cplusplus": "C++",
+    "email": "Email",
+    "figma": "Figma",
+    "focus": "FOCUS: ETL & BI",
+    "git": "Git",
+    "github": "GitHub",
+    "instagram": "Instagram",
+    "jenkins": "Jenkins",
+    "kotlin": "Kotlin",
+    "linkedin": "LinkedIn",
+    "linux": "Linux",
+    "macos": "macOS",
+    "mysql": "MySQL",
+    "nextjs": "Next.js",
+    "oracle": "Oracle",
+    "pinterest": "Pinterest",
+    "portfolio": "Portfolio",
+    "postgresql": "PostgreSQL",
+    "powerbi": "Power BI",
+    "python": "Python",
+    "react": "React",
+    "role": "ROLE: ASSISTANT MANAGER",
+    "sketch": "Sketch",
+    "spotify": "Spotify",
+    "tableau": "Tableau",
+    "tailwind": "Tailwind CSS",
+    "windows": "Windows",
+    "x": "X",
 }
 
-os.makedirs("assets", exist_ok=True)
-for name, url in badges.items():
-    print(f"Downloading {name}...")
-    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-    try:
-        with urllib.request.urlopen(req) as response:
-            with open(f"assets/badge-{name}.svg", 'wb') as f:
-                f.write(response.read())
-    except Exception as e:
-        print(f"Failed to download {name}: {e}")
+
+def extract_existing_icon(svg: str) -> str | None:
+    """Reuse the downloaded Simple Icons data URI so badge generation is offline.
+
+    The previous Shields output already contains a normalized SVG icon for each
+    branded badge. Keeping that data URI avoids adding a package dependency or a
+    network step, and it means future regeneration is deterministic in CI.
+    """
+    match = re.search(r'<image[^>]+href="([^"]+)"', svg)
+    return match.group(1) if match else None
+
+
+def estimate_text_width(label: str) -> int:
+    """Estimate chip width using a conservative average glyph width.
+
+    GitHub renders README SVGs in browser fonts, so exact text metrics can vary
+    across platforms. A slightly generous width prevents clipping while keeping
+    rows compact enough to wrap cleanly on narrow profile layouts.
+    """
+    narrow_chars = sum(1 for char in label if char in " .:ilI|!")
+    wide_chars = sum(1 for char in label if char in "MW@&")
+    normal_chars = len(label) - narrow_chars - wide_chars
+    return round((narrow_chars * 3.6) + (normal_chars * 6.6) + (wide_chars * 9.0))
+
+
+def build_badge(name: str, label: str, icon_href: str | None) -> str:
+    title = html.escape(label)
+    text_width = estimate_text_width(label)
+    content_width = LEFT_PADDING + text_width + RIGHT_PADDING
+    if icon_href:
+        content_width += ICON_SIZE + ICON_LABEL_GAP
+    width = max(CHIP_HEIGHT, content_width)
+    text_x = LEFT_PADDING + (ICON_SIZE + ICON_LABEL_GAP if icon_href else 0)
+    icon_markup = ""
+    if icon_href:
+        # The icon is intentionally aligned to whole pixels to keep the 16px
+        # artwork crisp after GitHub scales badges in dense README rows.
+        icon_markup = (
+            f'  <image x="{LEFT_PADDING}" y="6" width="{ICON_SIZE}" height="{ICON_SIZE}" '
+            f'href="{icon_href}" />\n'
+        )
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{CHIP_HEIGHT}" '
+        f'viewBox="0 0 {width} {CHIP_HEIGHT}" role="img" aria-label="{title}">\n'
+        f'  <title>{title}</title>\n'
+        f'  <rect width="{width}" height="{CHIP_HEIGHT}" rx="{CHIP_RADIUS}" fill="{BACKGROUND}" />\n'
+        f'{icon_markup}'
+        f'  <text x="{text_x}" y="50%" dy="0.35em" fill="{FOREGROUND}" '
+        f'font-family="{html.escape(FONT_FAMILY)}" font-size="{FONT_SIZE}" '
+        f'font-weight="600">{title}</text>\n'
+        f'</svg>\n'
+    )
+
+
+def main() -> None:
+    ASSET_DIR.mkdir(exist_ok=True)
+    existing_icons = {}
+    for path in ASSET_DIR.glob(BADGE_PATTERN):
+        existing_icons[path.stem.removeprefix("badge-")] = extract_existing_icon(path.read_text())
+
+    for name, label in BADGES.items():
+        path = ASSET_DIR / f"badge-{name}.svg"
+        path.write_text(build_badge(name, label, existing_icons.get(name)), encoding="utf-8")
+        print(f"Generated {path}")
+
+
+if __name__ == "__main__":
+    main()
