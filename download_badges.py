@@ -5,10 +5,11 @@ import ssl
 # Bypass SSL certificate verification issues on macOS python
 ssl._create_default_https_context = ssl._create_unverified_context
 
-# Atlassian Design System (dark theme): raised surface (#22272B) background with
-# brand-blue (#579DFF) logos. Flat-square keeps the ADS flat aesthetic.
+# README asset design tokens: raised dark surface (#22272B) with a single
+# primary blue (#1A73E8) for badge logos/active accents. Lighter blue is kept
+# out of badges so it remains reserved for large title/emphasis states.
 theme = "22272B"
-logo_color = "579DFF"
+logo_color = "1A73E8"
 style = "flat-square"
 
 badges = {

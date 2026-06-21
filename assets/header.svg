@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="auto" viewBox="0 0 720 180" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Surajit Das - Assistant Manager and Database Engineer">
-    <title>Surajit Das profile header</title>
-    <desc>Responsive 720 by 180 profile card. The 4:1 ratio keeps GitHub README scaling predictable at narrow and wide widths.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 720 135" width="100%" height="135" style="max-width: 720px; background-color: transparent;" role="img" aria-label="Surajit Das - Assistant Manager &amp; Database Engineer">
+    <!-- Asset color roles: #1A73E8 is the primary accent rail; #579DFF is reserved for the large title; #00C7E4 is used only for dynamic typing text. -->
     <style>
         .title {
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -24,9 +23,11 @@
         }
     </style>
 
-    <!-- The shared card frame uses a 24px content inset and 14px radius to match the stat card. -->
-    <rect x="0.5" y="0.5" width="719" height="179" rx="14" fill="#22272B" stroke="#2C333A" stroke-width="1"/>
-    <rect x="0.5" y="0.5" width="4" height="179" rx="2" fill="#0C66E4"/>
+    <!-- Background card -->
+    <rect x="0.5" y="0.5" width="719" height="134" rx="10" fill="#22272B" stroke="#2C333A" stroke-width="1"/>
+    
+    <!-- Accent indicator bar on the left side (Atlassian brand blue) -->
+    <rect x="0.5" y="0.5" width="4" height="134" rx="2" fill="#1A73E8"/>
 
     <!-- Content starts at 24px plus the accent gutter, so scaled-down renders do not crowd the edge. -->
     <text x="32" y="58" class="title">Surajit Das</text>

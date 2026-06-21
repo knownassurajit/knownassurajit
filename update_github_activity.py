@@ -30,17 +30,20 @@ USERNAME = "knownassurajit"
 TOKEN = os.environ.get("GITHUB_TOKEN")
 API = "https://api.github.com"
 
-# ---- Shared profile design tokens ---------------------------------------
-# These semantic aliases keep the stat card readable while sourcing every color
-# from design_tokens.py, the profile asset source of truth.
-SURFACE = token("surface")
-SURFACE_VARIANT = token("surface_variant")
-BORDER = token("outline")
-TEXT = token("on_surface")
-TEXT_SUBTLE = token("on_surface_variant")
-TEXT_FAINT = token("on_surface_variant")
-ACCENT = token("primary")
-ACCENT_TEXT = token("primary")
+# ---- README asset design tokens -----------------------------------------
+# Dark surfaces use high-contrast neutral text. Blue is intentionally restrained:
+# #1A73E8 is the primary brand accent; #579DFF is only for larger emphasis.
+# Cyan is reserved for the header typing animation, where the motion benefits
+# from a distinct dynamic color without competing with the primary blue.
+# -------------------------------------------------------------------------
+SURFACE = "#22272B"   # elevation.surface.raised
+SURFACE_SUNK = "#1D2125"
+BORDER = "#2C333A"     # color.border
+TEXT = "#C7D1DB"       # color.text
+TEXT_SUBTLE = "#9FADBC"  # color.text.subtle
+TEXT_FAINT = "#8C9BAB"
+ACCENT = "#1A73E8"       # Primary Material/Google blue for rails, icons, and active indicators.
+ACCENT_TEXT = "#579DFF"  # Lighter blue reserved for large/emphasis text on dark surfaces.
 
 
 def _request(url):
