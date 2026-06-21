@@ -4,7 +4,7 @@
 
 <br />
 
-<img src="https://img.shields.io/badge/%E2%97%8F_STATUS-Open_to_collaboration-0C66E4?style=flat-square&labelColor=1D2125" alt="Status: open to collaboration" />
+<img src="https://img.shields.io/badge/%E2%97%8F_STATUS-Open_to_collaboration-1A73E8?style=flat-square&labelColor=1D2125" alt="Status: open to collaboration" />
 
 <br />
 <br />
@@ -166,10 +166,10 @@
 <table border="0" align="center" style="border: none; border-collapse: collapse; background: transparent;">
   <tr style="border: none; background: transparent;">
     <td align="center" style="border: none; padding: 5px; background: transparent;">
-      <img src="https://github-readme-stats.vercel.app/api?username=knownassurajit&show_icons=true&hide_border=true&theme=transparent&title_color=579DFF&icon_color=579DFF&text_color=C7D1DB&bg_color=22272B&rank_icon=github" height="165" alt="GitHub Stats" />
+      <img src="https://github-readme-stats.vercel.app/api?username=knownassurajit&show_icons=true&hide_border=true&theme=transparent&title_color=579DFF&icon_color=1A73E8&text_color=C7D1DB&bg_color=22272B&rank_icon=github" height="165" alt="GitHub Stats" />
     </td>
     <td align="center" style="border: none; padding: 5px; background: transparent;">
-      <img src="https://github-readme-streak-stats.herokuapp.com?user=knownassurajit&hide_border=true&background=22272B&ring=0C66E4&fire=579DFF&currStreakLabel=9FADBC&sideLabels=9FADBC&currStreakNum=C7D1DB&sideNums=C7D1DB&dates=9FADBC&stroke=0C66E4" height="165" alt="GitHub Streak" />
+      <img src="https://github-readme-streak-stats.herokuapp.com?user=knownassurajit&hide_border=true&background=22272B&ring=1A73E8&fire=579DFF&currStreakLabel=9FADBC&sideLabels=9FADBC&currStreakNum=C7D1DB&sideNums=C7D1DB&dates=9FADBC&stroke=1A73E8" height="165" alt="GitHub Streak" />
     </td>
   </tr>
   <tr style="border: none; background: transparent;">
