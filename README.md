@@ -104,8 +104,6 @@
 | **[impstr ↗](https://play.google.com/store/apps/details?id=com.game.impstr)** | Fast-paced, physics-based Android action game with custom canvas loops and vector physics. | Kotlin · Compose · Canvas |
 | **[flora ↗](https://florabyjonakee.vercel.app/)** | Premium, minimalist e-commerce showcase for plant enthusiasts, with elegant animations and glass overlays. | React · Next.js · Tailwind |
 | **[void ↗](https://github.com/knownassurajit/void)** | Lightweight Kotlin utility library — performance, custom operators, and boilerplate reduction for Android. | Kotlin · Android |
-| **[gemini-nano-playground ↗](https://github.com/knownassurajit/gemini-nano-playground)** | On-device GenAI demo running Gemini Nano offline via the Chrome / Android Prompt API. | Kotlin · Gemini Nano |
-| **[Escape-Launcher ↗](https://github.com/knownassurajit/Escape-Launcher)** | Minimalist, text-based Android launcher designed to reduce phone addiction. | Kotlin · Jetpack |
 
 ---
 
