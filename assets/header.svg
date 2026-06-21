@@ -4,27 +4,27 @@
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-size: 28px;
             font-weight: 700;
-            fill: #579DFF;
+            fill: #1A73E8;
         }
         .subtitle {
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-size: 15px;
             font-weight: 500;
-            fill: #9FADBC;
+            fill: #BDC1C6;
         }
         .typing-text {
             font-family: ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
             font-size: 14px;
             font-weight: 600;
-            fill: #00C7E4;
+            fill: #1A73E8;
         }
     </style>
 
     <!-- Background card -->
-    <rect x="0.5" y="0.5" width="719" height="134" rx="10" fill="#22272B" stroke="#2C333A" stroke-width="1"/>
+    <rect x="0.5" y="0.5" width="719" height="134" rx="10" fill="#202124" stroke="#5F6368" stroke-width="1"/>
     
-    <!-- Accent indicator bar on the left side (Atlassian brand blue) -->
-    <rect x="0.5" y="0.5" width="4" height="134" rx="2" fill="#0C66E4"/>
+    <!-- Accent indicator bar on the left side (primary token) -->
+    <rect x="0.5" y="0.5" width="4" height="134" rx="2" fill="#1A73E8"/>
 
     <!-- Static Name -->
     <text x="30" y="44" class="title">Surajit Das</text>
