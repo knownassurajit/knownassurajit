@@ -1,17 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 720 135" width="100%" height="135" style="max-width: 720px; background-color: transparent;" role="img" aria-label="Surajit Das - Assistant Manager &amp; Database Engineer">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="auto" viewBox="0 0 720 180" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Surajit Das - Assistant Manager and Database Engineer">
+    <title>Surajit Das profile header</title>
+    <desc>Responsive 720 by 180 profile card. The 4:1 ratio keeps GitHub README scaling predictable at narrow and wide widths.</desc>
     <style>
         .title {
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 700;
             fill: #1A73E8;
         }
+
         .subtitle {
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 500;
             fill: #BDC1C6;
         }
+
         .typing-text {
             font-family: ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
             font-size: 14px;
@@ -20,46 +24,41 @@
         }
     </style>
 
-    <!-- Background card -->
-    <rect x="0.5" y="0.5" width="719" height="134" rx="10" fill="#202124" stroke="#5F6368" stroke-width="1"/>
-    
-    <!-- Accent indicator bar on the left side (primary token) -->
-    <rect x="0.5" y="0.5" width="4" height="134" rx="2" fill="#1A73E8"/>
+    <!-- The shared card frame uses a 24px content inset and 14px radius to match the stat card. -->
+    <rect x="0.5" y="0.5" width="719" height="179" rx="14" fill="#22272B" stroke="#2C333A" stroke-width="1"/>
+    <rect x="0.5" y="0.5" width="4" height="179" rx="2" fill="#0C66E4"/>
 
-    <!-- Static Name -->
-    <text x="30" y="44" class="title">Surajit Das</text>
-    
-    <!-- Static Role -->
-    <text x="30" y="74" class="subtitle">Assistant Manager · Business Intelligence · Bosch India</text>
+    <!-- Content starts at 24px plus the accent gutter, so scaled-down renders do not crowd the edge. -->
+    <text x="32" y="58" class="title">Surajit Das</text>
+    <text x="32" y="90" class="subtitle">Assistant Manager · Business Intelligence · Bosch India</text>
 
-    <!-- Dynamic Typing Animation Lines -->
-    <!-- Line 1: Database Engineer -->
-    <path id="path0" d="m30,104 h0" fill="none">
-        <animate id="d0" attributeName="d" begin="0s;d2.end" dur="4500ms" fill="remove" 
-                 values="m30,104 h0 ; m30,104 h600 ; m30,104 h600 ; m30,104 h0" 
+    <!-- The typing baseline sits one 16px section gap below the role copy. -->
+    <path id="path0" d="m32,122 h0" fill="none">
+        <animate id="d0" attributeName="d" begin="0s;d2.end" dur="4500ms" fill="remove"
+                 values="m32,122 h0 ; m32,122 h640 ; m32,122 h640 ; m32,122 h0"
                  keyTimes="0;0.6;0.9;1" />
     </path>
     <text class="typing-text">
         <textPath xlink:href="#path0">Database Engineer | ETL | SQL Optimization</textPath>
     </text>
 
-    <!-- Line 2: Manufacturing KPI dashboards -->
-    <path id="path1" d="m30,104 h0" fill="none">
-        <animate id="d1" attributeName="d" begin="d0.end" dur="4500ms" fill="remove" 
-                 values="m30,104 h0 ; m30,104 h600 ; m30,104 h600 ; m30,104 h0" 
+    <path id="path1" d="m32,122 h0" fill="none">
+        <animate id="d1" attributeName="d" begin="d0.end" dur="4500ms" fill="remove"
+                 values="m32,122 h0 ; m32,122 h640 ; m32,122 h640 ; m32,122 h0"
                  keyTimes="0;0.6;0.9;1" />
     </path>
     <text class="typing-text">
         <textPath xlink:href="#path1">Manufacturing KPI dashboards &amp; core-banking data</textPath>
     </text>
 
-    <!-- Line 3: Building scalable, beautiful data systems -->
-    <path id="path2" d="m30,104 h0" fill="none">
-        <animate id="d2" attributeName="d" begin="d1.end" dur="4500ms" fill="remove" 
-                 values="m30,104 h0 ; m30,104 h600 ; m30,104 h600 ; m30,104 h0" 
+    <path id="path2" d="m32,122 h0" fill="none">
+        <animate id="d2" attributeName="d" begin="d1.end" dur="4500ms" fill="remove"
+                 values="m32,122 h0 ; m32,122 h640 ; m32,122 h640 ; m32,122 h0"
                  keyTimes="0;0.6;0.9;1" />
     </path>
     <text class="typing-text">
         <textPath xlink:href="#path2">Building scalable, beautiful data systems</textPath>
     </text>
+
+    <text x="688" y="156" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" fill="#8C9BAB">@knownassurajit</text>
 </svg>
