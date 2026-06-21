@@ -1,6 +1,6 @@
 """
 Refreshes the profile README with live GitHub data and regenerates the
-Atlassian-dark "Profile Overview" stat card.
+token-driven "Profile Overview" stat card.
 
 Fixes over the previous version:
   * PushEvent payloads from /events/public carry no `commits`/`size` array,
@@ -20,6 +20,8 @@ from datetime import datetime, timezone
 import os
 import re
 import ssl
+
+from design_tokens import token
 
 # Bypass SSL certificate verification issues on macOS python
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -153,7 +155,7 @@ def fetch_user_stats():
 
 
 def build_stat_card(stats):
-    """Atlassian-dark 'Profile Overview' card with the live counts."""
+    """Token-driven 'Profile Overview' card with the live counts."""
     cols = [
         (stats.get("repos", 0), "REPOSITORIES"),
         (stats.get("followers", 0), "FOLLOWERS"),
