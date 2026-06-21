@@ -45,46 +45,46 @@
 <p>
   <img src="./assets/icon-database.svg" height="16" valign="middle" alt="" /> &nbsp;<b>Programming &amp; Databases</b>
   <br />
-  <img src="./assets/badge-python.svg" height="22" alt="Python" />
-  <img src="./assets/badge-cplusplus.svg" height="22" alt="C++" />
-  <img src="./assets/badge-bash.svg" height="22" alt="Bash" />
-  <img src="./assets/badge-oracle.svg" height="22" alt="Oracle" />
-  <img src="./assets/badge-postgresql.svg" height="22" alt="PostgreSQL" />
-  <img src="./assets/badge-mysql.svg" height="22" alt="MySQL" />
+  <img src="./assets/badge-python.svg" height="28" alt="Python" />
+  <img src="./assets/badge-cplusplus.svg" height="28" alt="C++" />
+  <img src="./assets/badge-bash.svg" height="28" alt="Bash" />
+  <img src="./assets/badge-oracle.svg" height="28" alt="Oracle" />
+  <img src="./assets/badge-postgresql.svg" height="28" alt="PostgreSQL" />
+  <img src="./assets/badge-mysql.svg" height="28" alt="MySQL" />
 </p>
 
 <p>
   <img src="./assets/icon-backend.svg" height="16" valign="middle" alt="" /> &nbsp;<b>DevOps &amp; Tooling</b>
   <br />
-  <img src="./assets/badge-git.svg" height="22" alt="Git" />
-  <img src="./assets/badge-jenkins.svg" height="22" alt="Jenkins" />
-  <img src="./assets/badge-linux.svg" height="22" alt="Linux" />
-  <img src="./assets/badge-windows.svg" height="22" alt="Windows" />
-  <img src="./assets/badge-macos.svg" height="22" alt="macOS" />
+  <img src="./assets/badge-git.svg" height="28" alt="Git" />
+  <img src="./assets/badge-jenkins.svg" height="28" alt="Jenkins" />
+  <img src="./assets/badge-linux.svg" height="28" alt="Linux" />
+  <img src="./assets/badge-windows.svg" height="28" alt="Windows" />
+  <img src="./assets/badge-macos.svg" height="28" alt="macOS" />
 </p>
 
 <p>
   <img src="./assets/icon-dataops.svg" height="16" valign="middle" alt="" /> &nbsp;<b>Data &amp; BI</b>
   <br />
-  <img src="./assets/badge-powerbi.svg" height="22" alt="Power BI" />
-  <img src="./assets/badge-tableau.svg" height="22" alt="Tableau" />
+  <img src="./assets/badge-powerbi.svg" height="28" alt="Power BI" />
+  <img src="./assets/badge-tableau.svg" height="28" alt="Tableau" />
 </p>
 
 <p>
   <img src="./assets/icon-frontend.svg" height="16" valign="middle" alt="" /> &nbsp;<b>Frontend &amp; Mobile</b>
   <br />
-  <img src="./assets/badge-kotlin.svg" height="22" alt="Kotlin" />
-  <img src="./assets/badge-react.svg" height="22" alt="React" />
-  <img src="./assets/badge-nextjs.svg" height="22" alt="Next.js" />
-  <img src="./assets/badge-tailwind.svg" height="22" alt="Tailwind CSS" />
-  <img src="./assets/badge-compose.svg" height="22" alt="Jetpack Compose" />
+  <img src="./assets/badge-kotlin.svg" height="28" alt="Kotlin" />
+  <img src="./assets/badge-react.svg" height="28" alt="React" />
+  <img src="./assets/badge-nextjs.svg" height="28" alt="Next.js" />
+  <img src="./assets/badge-tailwind.svg" height="28" alt="Tailwind CSS" />
+  <img src="./assets/badge-compose.svg" height="28" alt="Jetpack Compose" />
 </p>
 
 <p>
   <img src="./assets/icon-uiux.svg" height="16" valign="middle" alt="" /> &nbsp;<b>Design</b>
   <br />
-  <img src="./assets/badge-figma.svg" height="22" alt="Figma" />
-  <img src="./assets/badge-sketch.svg" height="22" alt="Sketch" />
+  <img src="./assets/badge-figma.svg" height="28" alt="Figma" />
+  <img src="./assets/badge-sketch.svg" height="28" alt="Sketch" />
 </p>
 
 ---
