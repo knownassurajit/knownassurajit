@@ -25,7 +25,7 @@
 <img src="./assets/stat-overview.svg" width="520" alt="Profile overview" />
 
 <!-- STATS_START -->
-`18` repositories &nbsp;&middot;&nbsp; `3` followers &nbsp;&middot;&nbsp; `6` following
+`20` repositories &nbsp;&middot;&nbsp; `3` followers &nbsp;&middot;&nbsp; `6` following
 <!-- STATS_END -->
 
 </div>
@@ -187,11 +187,11 @@ Recent activity, refreshed every 12 hours via the GitHub API:
 
 <!-- CONTRIB_START -->
 <ul>
-  <li>🔀 <b>Jun 27, 2026</b> &nbsp;Merged pull request #1 in <b>dvide</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/dvide'>repo &#8599;</a></li>
-  <li>📦 <b>Jun 27, 2026</b> &nbsp;Pushed to <code>master</code> on <b>dvide</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/dvide'>repo &#8599;</a></li>
-  <li>🔀 <b>Jun 27, 2026</b> &nbsp;Assigned pull request #1 in <b>dvide</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/dvide'>repo &#8599;</a></li>
-  <li>🔀 <b>Jun 27, 2026</b> &nbsp;Opened pull request #1 in <b>dvide</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/dvide'>repo &#8599;</a></li>
-  <li>✨ <b>Jun 27, 2026</b> &nbsp;Created branch in <b>dvide</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/dvide'>repo &#8599;</a></li>
+  <li>📦 <b>Jun 27, 2026</b> &nbsp;Pushed to <code>master</code> on <b>click-to-chat-web</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/click-to-chat-web'>repo &#8599;</a></li>
+  <li>📦 <b>Jun 27, 2026</b> &nbsp;Pushed to <code>develop</code> on <b>click-to-chat-web</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/click-to-chat-web'>repo &#8599;</a></li>
+  <li>📦 <b>Jun 27, 2026</b> &nbsp;Pushed to <code>master</code> on <b>click-to-chat-web</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/click-to-chat-web'>repo &#8599;</a></li>
+  <li>📦 <b>Jun 27, 2026</b> &nbsp;Pushed to <code>develop</code> on <b>click-to-chat-web</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/click-to-chat-web'>repo &#8599;</a></li>
+  <li>📦 <b>Jun 27, 2026</b> &nbsp;Pushed to <code>master</code> on <b>click-to-chat-web</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/click-to-chat-web'>repo &#8599;</a></li>
 </ul>
 <!-- CONTRIB_END -->
 
