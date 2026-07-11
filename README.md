@@ -25,7 +25,7 @@
 <img src="./assets/stat-overview.svg" width="520" alt="Profile overview" />
 
 <!-- STATS_START -->
-`20` repositories &nbsp;&middot;&nbsp; `3` followers &nbsp;&middot;&nbsp; `6` following
+`21` repositories &nbsp;&middot;&nbsp; `3` followers &nbsp;&middot;&nbsp; `6` following
 <!-- STATS_END -->
 
 </div>
