@@ -1,8 +1,7 @@
 """
-Refreshes the profile README with live GitHub data and regenerates the
-Atlassian-dark "Profile Overview" stat card.
+Refreshes the profile README with live GitHub data and regenerates token-driven
+stat cards (overview + languages).
 
-Fixes over the previous version:
   * PushEvent payloads from /events/public carry no `commits`/`size` array,
     so the old "Pushed N commit(s)" always printed 0. We now derive the
     branch from `ref` and use payload `size` only when present.
@@ -10,33 +9,62 @@ Fixes over the previous version:
     silently dropping them.
   * De-noises the feed: collapses consecutive identical actions on the same
     repo (automation tends to fire many near-identical events).
-  * Emits assets/stat-overview.svg with the live repo/follower/following
-    counts so the README shows a dynamic, on-brand card.
+  * Emits assets/stat-overview.svg and assets/stat-languages.svg with live
+    counts from the GitHub API.
 """
 
-import urllib.request
 import json
-from datetime import datetime, timezone
 import os
 import re
 import ssl
+import urllib.request
+from collections import Counter
+from datetime import datetime, timezone
 
-# Bypass SSL certificate verification issues on macOS python
+from design_tokens import layout, token
+
 ssl._create_default_https_context = ssl._create_unverified_context
 
 USERNAME = "knownassurajit"
 TOKEN = os.environ.get("GITHUB_TOKEN")
 API = "https://api.github.com"
 
-# ---- Atlassian Design System (dark theme) tokens -------------------------
-SURFACE = "#22272B"   # elevation.surface.raised
-SURFACE_SUNK = "#1D2125"
-BORDER = "#2C333A"     # color.border
-TEXT = "#C7D1DB"       # color.text
-TEXT_SUBTLE = "#9FADBC"  # color.text.subtle
-TEXT_FAINT = "#8C9BAB"
-ACCENT = "#0C66E4"     # color.background.brand.bold
-ACCENT_TEXT = "#579DFF"  # color.text.brand
+SURFACE = token("surface")
+SURFACE_VARIANT = token("surface_variant")
+BORDER = token("outline")
+TEXT = token("on_surface")
+TEXT_SUBTLE = token("on_surface_variant")
+ACCENT = token("primary")
+ACCENT_RAIL = token("primary_container")
+
+CARD_W = layout("card_width")
+CARD_H = layout("card_height")
+CARD_RADIUS = layout("card_radius")
+INSET = layout("content_inset")
+
+MONO = "ui-monospace,'JetBrains Mono',SFMono-Regular,Menlo,monospace"
+SANS = "system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
+
+LANG_COLORS = {
+    "Python": "#3572A5",
+    "Kotlin": "#A97BFF",
+    "JavaScript": "#F1E05A",
+    "TypeScript": "#3178C6",
+    "Java": "#B07219",
+    "C++": "#F34B7D",
+    "Shell": "#89E051",
+    "HTML": "#E34C26",
+    "CSS": "#563D7C",
+    "Go": "#00ADD8",
+    "Rust": "#DEA584",
+    "Ruby": "#701516",
+    "Swift": "#F05138",
+    "Dart": "#00B4AB",
+    "C": "#555555",
+    "PHP": "#4F5D95",
+    "R": "#198CE7",
+    "Scala": "#C22D40",
+}
 
 
 def _request(url):
@@ -50,12 +78,11 @@ def _request(url):
 
 
 def short_repo(full_name):
-    """`owner/name` -> `name` for readability."""
     return full_name.split("/", 1)[-1]
 
 
 def describe(event):
-    """Return (icon, text) for a public event, or None to skip it."""
+    """Return action text for a public event, or None to skip it."""
     etype = event.get("type")
     payload = event.get("payload", {})
     repo = short_repo(event.get("repo", {}).get("name", ""))
@@ -67,38 +94,38 @@ def describe(event):
             label = f"Pushed {size} commit{'s' if size != 1 else ''} to"
         else:
             label = "Pushed to"
-        return ("\U0001F4E6", f"{label} <code>{branch}</code> on <b>{repo}</b>")
+        return f"{label} <code>{branch}</code> on <b>{repo}</b>"
 
     if etype == "PullRequestEvent":
         action = payload.get("action", "opened")
         num = payload.get("number")
         ref = f" #{num}" if num else ""
-        return ("\U0001F500", f"{action.capitalize()} pull request{ref} in <b>{repo}</b>")
+        return f"{action.capitalize()} pull request{ref} in <b>{repo}</b>"
 
     if etype == "IssuesEvent":
         action = payload.get("action", "opened")
-        return ("\U0001F4CC", f"{action.capitalize()} issue in <b>{repo}</b>")
+        return f"{action.capitalize()} issue in <b>{repo}</b>"
 
     if etype == "IssueCommentEvent":
-        return ("\U0001F4AC", f"Commented on an issue in <b>{repo}</b>")
+        return f"Commented on an issue in <b>{repo}</b>"
 
     if etype == "CreateEvent":
         ref_type = payload.get("ref_type", "repository")
-        return ("✨", f"Created {ref_type} in <b>{repo}</b>")
+        return f"Created {ref_type} in <b>{repo}</b>"
 
     if etype == "DeleteEvent":
         ref_type = payload.get("ref_type", "branch")
-        return ("\U0001F5D1️", f"Deleted {ref_type} in <b>{repo}</b>")
+        return f"Deleted {ref_type} in <b>{repo}</b>"
 
     if etype == "ReleaseEvent":
         tag = payload.get("release", {}).get("tag_name", "")
-        return ("\U0001F680", f"Released {tag} on <b>{repo}</b>".strip())
+        return f"Released {tag} on <b>{repo}</b>".strip()
 
     if etype == "ForkEvent":
-        return ("\U0001F374", f"Forked <b>{repo}</b>")
+        return f"Forked <b>{repo}</b>"
 
     if etype == "WatchEvent":
-        return ("⭐", f"Starred <b>{repo}</b>")
+        return f"Starred <b>{repo}</b>"
 
     return None
 
@@ -112,11 +139,9 @@ def fetch_contributions(limit=5):
 
     out, seen = [], None
     for event in data:
-        described = describe(event)
-        if not described:
+        text = describe(event)
+        if not text:
             continue
-        icon, text = described
-        # collapse consecutive identical actions (automation noise)
         key = (event.get("type"), event.get("repo", {}).get("name"), text)
         if key == seen:
             continue
@@ -124,7 +149,6 @@ def fetch_contributions(limit=5):
 
         dt = datetime.strptime(event["created_at"], "%Y-%m-%dT%H:%M:%SZ")
         out.append({
-            "icon": icon,
             "text": text,
             "date": dt.strftime("%b %d, %Y"),
             "repo_url": f"https://github.com/{event['repo']['name']}",
@@ -134,70 +158,147 @@ def fetch_contributions(limit=5):
     return out
 
 
-def fetch_user_stats():
+def fetch_repos():
     try:
-        data = _request(f"{API}/users/{USERNAME}")
+        return _request(f"{API}/users/{USERNAME}/repos?per_page=100&sort=updated")
+    except Exception as e:
+        print(f"Error fetching repos: {e}")
+        return []
+
+
+def top_languages(repos, n=5):
+    counts = Counter(
+        repo.get("language") for repo in repos if repo.get("language")
+    )
+    total = sum(counts.values()) or 1
+    return [
+        {"name": lang, "count": count, "pct": round(count / total * 100)}
+        for lang, count in counts.most_common(n)
+    ]
+
+
+def fetch_extended_stats():
+    try:
+        user = _request(f"{API}/users/{USERNAME}")
+        repos = fetch_repos()
         return {
-            "repos": data.get("public_repos", 0),
-            "followers": data.get("followers", 0),
-            "following": data.get("following", 0),
+            "repos": user.get("public_repos", 0),
+            "followers": user.get("followers", 0),
+            "following": user.get("following", 0),
+            "stars": sum(r.get("stargazers_count", 0) for r in repos),
+            "languages": top_languages(repos),
         }
     except Exception as e:
         print(f"Error fetching stats: {e}")
         return {}
 
 
+def _card_frame(w, h, title, aria_label):
+    updated = datetime.now(timezone.utc).strftime("%d %b %Y")
+    right = w - INSET
+    return [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" '
+        f'viewBox="0 0 {w} {h}" preserveAspectRatio="xMidYMid meet" '
+        f'role="img" aria-label="{aria_label}">',
+        f"<title>{title}</title>",
+        f'<rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" '
+        f'rx="{CARD_RADIUS}" fill="{SURFACE}" stroke="{BORDER}"/>',
+        f'<rect x="0.5" y="0.5" width="{layout("accent_rail_width")}" '
+        f'height="{h - 1}" rx="2" fill="{ACCENT_RAIL}"/>',
+        f'<circle cx="{INSET}" cy="32" r="4" fill="{ACCENT}"/>',
+        f'<text x="{INSET + 16}" y="36" font-family="{SANS}" font-size="13" '
+        f'font-weight="600" letter-spacing="2" fill="{TEXT_SUBTLE}">{title}</text>',
+        f'<text x="{right}" y="36" text-anchor="end" font-family="{MONO}" '
+        f'font-size="11" fill="{TEXT_SUBTLE}">@{USERNAME}</text>',
+        f'<line x1="{INSET}" y1="56" x2="{right}" y2="56" stroke="{BORDER}"/>',
+    ], right, updated
+
+
 def build_stat_card(stats):
-    """Atlassian-dark 'Profile Overview' card with the live counts."""
     cols = [
         (stats.get("repos", 0), "REPOSITORIES"),
         (stats.get("followers", 0), "FOLLOWERS"),
+        (stats.get("stars", 0), "STARS"),
         (stats.get("following", 0), "FOLLOWING"),
     ]
-    w, h = 520, 150
-    third = w / 3
-    mono = "ui-monospace,'JetBrains Mono',SFMono-Regular,Menlo,monospace"
-    sans = "'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
-    updated = datetime.now(timezone.utc).strftime("%d %b %Y")
+    w, h = CARD_W, CARD_H
+    col_w = w / 4
+    parts, right, updated = _card_frame(w, h, "PROFILE OVERVIEW", "GitHub profile overview")
 
-    parts = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
-        f'viewBox="0 0 {w} {h}" role="img" aria-label="GitHub profile overview">',
-        f'<rect x="0.5" y="0.5" width="{w-1}" height="{h-1}" rx="14" '
-        f'fill="{SURFACE}" stroke="{BORDER}"/>',
-        # accent rail
-        f'<rect x="0.5" y="0.5" width="4" height="{h-1}" rx="2" fill="{ACCENT}"/>',
-        # header
-        f'<circle cx="30" cy="30" r="4" fill="{ACCENT_TEXT}"/>',
-        f'<text x="44" y="34" font-family="{sans}" font-size="13" font-weight="600" '
-        f'letter-spacing="2" fill="{TEXT_SUBTLE}">PROFILE OVERVIEW</text>',
-        f'<text x="{w-22}" y="34" text-anchor="end" font-family="{mono}" font-size="11" '
-        f'fill="{TEXT_FAINT}">@{USERNAME}</text>',
-        f'<line x1="22" y1="50" x2="{w-22}" y2="50" stroke="{BORDER}"/>',
-    ]
     for i, (value, label) in enumerate(cols):
-        cx = third * i + third / 2
+        cx = col_w * i + col_w / 2
         if i > 0:
-            x = third * i
+            x = col_w * i
             parts.append(
-                f'<line x1="{x:.0f}" y1="70" x2="{x:.0f}" y2="124" stroke="{BORDER}"/>')
+                f'<line x1="{x:.0f}" y1="78" x2="{x:.0f}" y2="132" stroke="{BORDER}"/>'
+            )
         parts.append(
-            f'<text x="{cx:.0f}" y="104" text-anchor="middle" font-family="{mono}" '
-            f'font-size="38" font-weight="700" fill="{TEXT}">{value}</text>')
+            f'<text x="{cx:.0f}" y="111" text-anchor="middle" font-family="{MONO}" '
+            f'font-size="38" font-weight="700" fill="{TEXT}">{value}</text>'
+        )
         parts.append(
-            f'<text x="{cx:.0f}" y="128" text-anchor="middle" font-family="{sans}" '
+            f'<text x="{cx:.0f}" y="135" text-anchor="middle" font-family="{SANS}" '
             f'font-size="11" font-weight="600" letter-spacing="1.5" '
-            f'fill="{TEXT_FAINT}">{label}</text>')
-    parts.append(
-        f'<text x="{w-22}" y="{h-12}" text-anchor="end" font-family="{mono}" '
-        f'font-size="10" fill="{TEXT_FAINT}">synced {updated} · GitHub API</text>')
-    parts.append('</svg>')
+            f'fill="{TEXT_SUBTLE}">{label}</text>'
+        )
 
-    svg = "".join(parts)
+    parts.append(
+        f'<text x="{right}" y="{h - 24}" text-anchor="end" font-family="{MONO}" '
+        f'font-size="10" fill="{TEXT_SUBTLE}">synced {updated} · GitHub API</text>'
+    )
+    parts.append("</svg>")
+
     os.makedirs("assets", exist_ok=True)
     with open("assets/stat-overview.svg", "w", encoding="utf-8") as f:
-        f.write(svg)
+        f.write("".join(parts))
     print("Wrote assets/stat-overview.svg")
+
+
+def build_language_card(languages):
+    n = max(len(languages), 1)
+    h = 56 + n * 16 + 28
+    w = CARD_W
+    parts, right, updated = _card_frame(w, h, "TOP LANGUAGES", "Top repository languages")
+
+    if not languages:
+        parts.append(
+            f'<text x="{w / 2:.0f}" y="72" text-anchor="middle" font-family="{SANS}" '
+            f'font-size="13" fill="{TEXT_SUBTLE}">No language data available</text>'
+        )
+    else:
+        bar_left = INSET
+        bar_right = right
+        bar_width = bar_right - bar_left - 90
+        y_start = 68
+        row_h = 16
+
+        for i, lang in enumerate(languages):
+            y = y_start + i * row_h
+            color = LANG_COLORS.get(lang["name"], ACCENT)
+            fill_w = max(bar_width * lang["pct"] / 100, 4)
+            parts.append(
+                f'<text x="{bar_left}" y="{y}" font-family="{MONO}" font-size="11" '
+                f'fill="{TEXT}">{lang["name"]}</text>'
+            )
+            parts.append(
+                f'<rect x="{bar_left + 90}" y="{y - 9}" width="{fill_w:.0f}" '
+                f'height="6" rx="3" fill="{color}" opacity="0.85"/>'
+            )
+            parts.append(
+                f'<text x="{bar_right}" y="{y}" text-anchor="end" font-family="{MONO}" '
+                f'font-size="10" fill="{TEXT_SUBTLE}">{lang["pct"]}%</text>'
+            )
+
+    parts.append(
+        f'<text x="{right}" y="{h - 12}" text-anchor="end" font-family="{MONO}" '
+        f'font-size="10" fill="{TEXT_SUBTLE}">synced {updated} · GitHub API</text>'
+    )
+    parts.append("</svg>")
+
+    os.makedirs("assets", exist_ok=True)
+    with open("assets/stat-languages.svg", "w", encoding="utf-8") as f:
+        f.write("".join(parts))
+    print("Wrote assets/stat-languages.svg")
 
 
 def render_activity(contributions):
@@ -205,9 +306,8 @@ def render_activity(contributions):
     if contributions:
         for c in contributions:
             rows += (
-                f"  <li>{c['icon']} <b>{c['date']}</b> &nbsp;"
-                f"{c['text']} &nbsp;&middot;&nbsp; "
-                f"<a href='{c['repo_url']}'>repo &#8599;</a></li>\n"
+                f"  <li><b>{c['date']}</b> &nbsp;{c['text']} &nbsp;&middot;&nbsp; "
+                f"<a href='{c['repo_url']}'>repo</a></li>\n"
             )
     else:
         rows += "  <li>No recent public activity.</li>\n"
@@ -217,7 +317,7 @@ def render_activity(contributions):
 
 def update_readme():
     contributions = fetch_contributions()
-    stats = fetch_user_stats()
+    stats = fetch_extended_stats()
 
     with open("README.md", "r", encoding="utf-8") as f:
         content = f.read()
@@ -226,19 +326,13 @@ def update_readme():
     content = re.sub(
         r"<!-- CONTRIB_START -->.*?<!-- CONTRIB_END -->",
         f"<!-- CONTRIB_START -->\n{contrib_md}\n<!-- CONTRIB_END -->",
-        content, flags=re.DOTALL)
+        content,
+        flags=re.DOTALL,
+    )
 
     if stats:
         build_stat_card(stats)
-        stats_md = (
-            f"`{stats['repos']}` repositories &nbsp;&middot;&nbsp; "
-            f"`{stats['followers']}` followers &nbsp;&middot;&nbsp; "
-            f"`{stats['following']}` following"
-        )
-        content = re.sub(
-            r"<!-- STATS_START -->.*?<!-- STATS_END -->",
-            f"<!-- STATS_START -->\n{stats_md}\n<!-- STATS_END -->",
-            content, flags=re.DOTALL)
+        build_language_card(stats.get("languages", []))
 
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(content)
