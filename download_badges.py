@@ -12,48 +12,23 @@ import urllib.request
 
 from design_tokens import layout, token, token_param
 
-# Bypass SSL certificate verification issues on macOS python
 ssl._create_default_https_context = ssl._create_unverified_context
 
-# Atlassian Design System (dark theme): raised surface (#22272B) background with
-# brand-blue (#579DFF) logos. Flat-square keeps the ADS flat aesthetic.
-theme = "22272B"
-logo_color = "579DFF"
-style = "flat-square"
+SURFACE = token("surface")
+LOGO_COLOR = token("primary")
+TEXT_COLOR = token("on_surface_bright")
+FONT = "system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif"
 
-badges = {
-    "python": f"https://img.shields.io/badge/Python-{theme}?style={style}&logo=python&logoColor={logo_color}",
-    "cplusplus": f"https://img.shields.io/badge/C%2B%2B-{theme}?style={style}&logo=c%2B%2B&logoColor={logo_color}",
-    "bash": f"https://img.shields.io/badge/Bash-{theme}?style={style}&logo=gnu-bash&logoColor={logo_color}",
-    "oracle": f"https://img.shields.io/badge/Oracle-{theme}?style={style}&logo=oracle&logoColor={logo_color}",
-    "postgresql": f"https://img.shields.io/badge/PostgreSQL-{theme}?style={style}&logo=postgresql&logoColor={logo_color}",
-    "mysql": f"https://img.shields.io/badge/MySQL-{theme}?style={style}&logo=mysql&logoColor={logo_color}",
-    "git": f"https://img.shields.io/badge/Git-{theme}?style={style}&logo=git&logoColor={logo_color}",
-    "jenkins": f"https://img.shields.io/badge/Jenkins-{theme}?style={style}&logo=jenkins&logoColor={logo_color}",
-    "powerbi": f"https://img.shields.io/badge/Power_BI-{theme}?style={style}&logo=powerbi&logoColor={logo_color}",
-    "tableau": f"https://img.shields.io/badge/Tableau-{theme}?style={style}&logo=tableau&logoColor={logo_color}",
-    "figma": f"https://img.shields.io/badge/Figma-{theme}?style={style}&logo=figma&logoColor={logo_color}",
-    "linux": f"https://img.shields.io/badge/Linux-{theme}?style={style}&logo=linux&logoColor={logo_color}",
-    "windows": f"https://img.shields.io/badge/Windows-{theme}?style={style}&logo=windows&logoColor={logo_color}",
-    "macos": f"https://img.shields.io/badge/macOS-{theme}?style={style}&logo=apple&logoColor={logo_color}",
-    "kotlin": f"https://img.shields.io/badge/Kotlin-{theme}?style={style}&logo=kotlin&logoColor={logo_color}",
-    "react": f"https://img.shields.io/badge/React-{theme}?style={style}&logo=react&logoColor={logo_color}",
-    "nextjs": f"https://img.shields.io/badge/Next.js-{theme}?style={style}&logo=nextdotjs&logoColor={logo_color}",
-    "tailwind": f"https://img.shields.io/badge/Tailwind_CSS-{theme}?style={style}&logo=tailwindcss&logoColor={logo_color}",
-    "compose": f"https://img.shields.io/badge/Jetpack_Compose-{theme}?style={style}&logo=jetpackcompose&logoColor={logo_color}",
-    "sketch": f"https://img.shields.io/badge/Sketch-{theme}?style={style}&logo=sketch&logoColor={logo_color}",
-    "portfolio": f"https://img.shields.io/badge/Portfolio-{theme}?style={style}&logo=vercel&logoColor={logo_color}",
-    "email": f"https://img.shields.io/badge/Email-{theme}?style={style}&logo=gmail&logoColor={logo_color}",
-    "linkedin": f"https://img.shields.io/badge/LinkedIn-{theme}?style={style}&logo=linkedin&logoColor={logo_color}",
-    "github": f"https://img.shields.io/badge/GitHub-{theme}?style={style}&logo=github&logoColor={logo_color}",
-    "x": f"https://img.shields.io/badge/X-{theme}?style={style}&logo=x&logoColor={logo_color}",
-    "instagram": f"https://img.shields.io/badge/Instagram-{theme}?style={style}&logo=instagram&logoColor={logo_color}",
-    "behance": f"https://img.shields.io/badge/Behance-{theme}?style={style}&logo=behance&logoColor={logo_color}",
-    "pinterest": f"https://img.shields.io/badge/Pinterest-{theme}?style={style}&logo=pinterest&logoColor={logo_color}",
-    "spotify": f"https://img.shields.io/badge/Spotify-{theme}?style={style}&logo=spotify&logoColor={logo_color}"
-}
-
-TECH_BADGES = {
+SOCIAL_BADGES = {
+    "portfolio": ("Portfolio", "vercel"),
+    "email": ("Email", "gmail"),
+    "linkedin": ("LinkedIn", "linkedin"),
+    "github": ("GitHub", "github"),
+    "x": ("X", "x"),
+    "instagram": ("Instagram", "instagram"),
+    "behance": ("Behance", "behance"),
+    "pinterest": ("Pinterest", "pinterest"),
+    "spotify": ("Spotify", "spotify"),
 }
 
 TECH_BADGES = {
