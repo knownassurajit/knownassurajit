@@ -545,7 +545,7 @@ def render_projects(projects):
     # Prefer starred / recently updated; skip profile README repo
     filtered = [p for p in projects if p.get("name") != USERNAME]
     filtered.sort(
-        key=lambda p: (p.get("stargazers_count", 0), p.get("pushed_at", "")),
+        key=lambda p: (p.get("pushed_at", ""), p.get("stargazers_count", 0)),
         reverse=True,
     )
     if not filtered:
