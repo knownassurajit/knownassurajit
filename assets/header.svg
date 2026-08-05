@@ -1,43 +1,43 @@
-<svg width="900" height="260" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono','Berkeley Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="auto" viewBox="0 0 900 260" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Surajit Das — Assistant Manager, Business Intelligence, Bosch India">
+  <title>Surajit Das profile header</title>
   <defs>
-    <clipPath id="rounded">
-      <rect x="0" y="0" width="900" height="260" rx="10"/>
+    <linearGradient id="elev-header" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#161D2B"/>
+      <stop offset="100%" stop-color="#0E1420"/>
+    </linearGradient>
+    <clipPath id="clip-header">
+      <rect x="1" y="1" width="898" height="258" rx="12"/>
     </clipPath>
   </defs>
 
-  <g clip-path="url(#rounded)">
-    <rect x="0" y="0" width="900" height="260" fill="#0E1420"/>
+  <g clip-path="url(#clip-header)">
+    <rect x="1" y="1" width="898" height="258" fill="url(#elev-header)" stroke="#2A3348"/>
+    <rect x="1" y="1" width="4" height="258" fill="#E0A458"/>
 
-    <!-- title bar -->
-    <rect x="0" y="0" width="900" height="34" fill="#161D2B"/>
-    <line x1="0" y1="34" x2="900" y2="34" stroke="#2A3348" stroke-width="1"/>
-    <circle cx="20" cy="17" r="5" fill="#3A4358"/>
-    <circle cx="38" cy="17" r="5" fill="#3A4358"/>
-    <circle cx="56" cy="17" r="5" fill="#3A4358"/>
-    <text x="450" y="21" fill="#7C89A6" font-size="12" text-anchor="middle" letter-spacing="0.5">psql — surajit@production</text>
+    <rect x="1" y="1" width="898" height="36" fill="#161D2B"/>
+    <circle cx="22" cy="18" r="4.5" fill="#3F4A63"/>
+    <circle cx="40" cy="18" r="4.5" fill="#3F4A63"/>
+    <circle cx="58" cy="18" r="4.5" fill="#3F4A63"/>
+    <text x="450" y="22" text-anchor="middle" fill="#7C89A6" font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12">psql — surajit@production</text>
+    <line x1="1" y1="37" x2="899" y2="37" stroke="#2A3348"/>
 
-    <!-- prompt + query -->
-    <text x="28" y="66" fill="#E0A458" font-size="14">surajit=#</text>
-    <text x="112" y="66" fill="#E7EBF5" font-size="14">SELECT name, role, company FROM engineers WHERE id = 'surajit_das';</text>
+    <text x="28" y="70" fill="#E0A458" font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14">surajit=#</text>
+    <text x="112" y="70" fill="#E7EBF5" font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14">SELECT name, role, company FROM engineers WHERE id = 'surajit_das';</text>
 
-    <!-- result table -->
-    <g>
-      <line x1="28" y1="86" x2="872" y2="86" stroke="#2A3348" stroke-width="1"/>
-      <text x="40" y="106" fill="#7C89A6" font-size="12" letter-spacing="0.5">name</text>
-      <text x="240" y="106" fill="#7C89A6" font-size="12" letter-spacing="0.5">role</text>
-      <text x="620" y="106" fill="#7C89A6" font-size="12" letter-spacing="0.5">company</text>
-      <line x1="28" y1="118" x2="872" y2="118" stroke="#2A3348" stroke-width="1"/>
+    <line x1="28" y1="92" x2="872" y2="92" stroke="#2A3348"/>
+    <text x="40" y="114" fill="#7C89A6" font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" letter-spacing="0.6">name</text>
+    <text x="280" y="114" fill="#7C89A6" font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" letter-spacing="0.6">role</text>
+    <text x="620" y="114" fill="#7C89A6" font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" letter-spacing="0.6">company</text>
+    <line x1="28" y1="126" x2="872" y2="126" stroke="#2A3348"/>
 
-      <text x="40" y="146" fill="#E7EBF5" font-size="19" font-weight="600">Surajit Das</text>
-      <text x="240" y="146" fill="#E7EBF5" font-size="19" font-weight="600">Asst. Manager, BI</text>
-      <text x="620" y="146" fill="#E7EBF5" font-size="19" font-weight="600">Bosch India</text>
+    <text x="40" y="158" fill="#E7EBF5" font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="20" font-weight="600">Surajit Das</text>
+    <text x="280" y="158" fill="#E7EBF5" font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="20" font-weight="600">Asst. Manager, BI</text>
+    <text x="620" y="158" fill="#E7EBF5" font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="20" font-weight="600">Bosch India</text>
 
-      <line x1="28" y1="164" x2="872" y2="164" stroke="#2A3348" stroke-width="1"/>
-      <text x="28" y="184" fill="#7C89A6" font-size="12">(1 row)</text>
-    </g>
+    <line x1="28" y1="176" x2="872" y2="176" stroke="#2A3348"/>
+    <text x="28" y="198" fill="#7C89A6" font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12">(1 row)</text>
 
-    <!-- footer strap -->
-    <text x="28" y="222" fill="#7C89A6" font-size="13">Business Intelligence &amp; Database Engineer<tspan fill="#E0A458">_</tspan></text>
-    <text x="28" y="242" fill="#3F4A63" font-size="12">PL/SQL · PostgreSQL · Oracle · ETL · Query &amp; pipeline performance tuning</text>
+    <text x="28" y="228" fill="#7C89A6" font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13">Business Intelligence &amp; Database Engineer<tspan fill="#E0A458"><animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/>_</tspan></text>
+    <text x="28" y="248" fill="#3F4A63" font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12">PL/SQL · PostgreSQL · Oracle · ETL · Query &amp; pipeline performance tuning</text>
   </g>
 </svg>
