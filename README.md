@@ -79,8 +79,8 @@
 <!-- PROJECTS_START -->
 | Project | Description | Stack | ★ |
 | :-- | :-- | :-- | --: |
-| **[void ↗](https://github.com/knownassurajit/void)** | Lightweight Kotlin utility library — operators and Android boilerplate reduction. | Kotlin | 0 |
 | **[rebyld ↗](https://github.com/knownassurajit/rebyld)** | Experimental rebuild / tooling project. | HTML | 0 |
+| **[void ↗](https://github.com/knownassurajit/void)** | Lightweight Kotlin utility library — operators and Android boilerplate reduction. | Kotlin | 0 |
 | **[dvide ↗](https://github.com/knownassurajit/dvide)** | Kotlin project exploring structured UI and tooling. | Kotlin | 0 |
 | **[impstr ↗](https://play.google.com/store/apps/details?id=com.game.impstr)** | Fast-paced physics-based Android action game with custom canvas loops. | Kotlin | 0 |
 | **[clndr ↗](https://github.com/knownassurajit/clndr)** | Calendar utility built in Kotlin. | Kotlin | 0 |
@@ -140,11 +140,11 @@ Recent activity, refreshed every 12 hours via the GitHub API:
 
 <!-- CONTRIB_START -->
 <ul>
+  <li><b>Aug 09, 2026</b> &nbsp;Pushed to <code>main</code> on <b>rebyld</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/rebyld'>repo</a></li>
   <li><b>Aug 05, 2026</b> &nbsp;Starred <b>Career-Agents</b> &nbsp;&middot;&nbsp; <a href='https://github.com/karthikrshet/Career-Agents'>repo</a></li>
   <li><b>Aug 05, 2026</b> &nbsp;Pushed to <code>stage</code> on <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
   <li><b>Aug 05, 2026</b> &nbsp;Merged pull request #77 in <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
   <li><b>Aug 05, 2026</b> &nbsp;Pushed to <code>develop</code> on <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
-  <li><b>Aug 05, 2026</b> &nbsp;Labeled pull request #77 in <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
 </ul>
 <!-- CONTRIB_END -->
 
