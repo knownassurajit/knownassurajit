@@ -9,14 +9,24 @@ on:
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+    container:
+      image: python:3.10-slim
     steps:
+      - name: Install git
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends git ca-certificates
+          rm -rf /var/lib/apt/lists/*
+
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          fetch-depth: 0
+          ref: develop
+
+      - name: Validate scripts (py_compile)
+        run: |
+          python -m py_compile update_github_activity.py download_badges.py design_tokens.py
 
       - name: Update Activity
         env:
@@ -24,10 +34,26 @@ jobs:
         run: |
           python update_github_activity.py
 
-      - name: Commit changes
+      - name: Commit changes to develop
         run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add README.md assets/stat-overview.svg assets/stat-languages.svg
           git commit -m "docs: auto-update github activity stats" || echo "No changes to commit"
-          git push
+          git push origin HEAD:develop
+          echo "DEVELOP_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Promote develop to master
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git fetch origin master
+          git checkout -B master origin/master
+          if git merge --ff-only "$DEVELOP_SHA"; then
+            git push origin master
+          else
+            echo "::error::Fast-forward promotion of develop -> master failed. develop (${DEVELOP_SHA}) and master have diverged; manual intervention required." >&2
+            exit 1
+          fi
