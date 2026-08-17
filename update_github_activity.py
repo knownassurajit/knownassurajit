@@ -1,17 +1,14 @@
 """
-Refreshes the profile README with live GitHub data and regenerates token-driven
-stat cards (overview + languages).
+Refresh the profile README with live GitHub data.
 
-  * PushEvent payloads from /events/public carry no `commits`/`size` array,
-    so the old "Pushed N commit(s)" always printed 0. We now derive the
-    branch from `ref` and use payload `size` only when present.
-  * Handles Delete/Create/Release/Fork/Issue-comment events instead of
-    silently dropping them.
-  * De-noises the feed: collapses consecutive identical actions on the same
-    repo (automation tends to fire many near-identical events).
-  * Emits assets/stat-overview.svg and assets/stat-languages.svg with live
-    counts from the GitHub API.
+Generates:
+  * assets/stat-overview.svg   — elevated SQL-themed overview (repos/stars/followers/contribs)
+  * assets/stat-languages.svg  — top languages
+  * assets/stat-heatmap.svg    — contribution heatmap from GraphQL calendar
+  * README markers: CONTRIB_START, PROJECTS_START
 """
+
+from __future__ import annotations
 
 import json
 import os
@@ -28,22 +25,23 @@ ssl._create_default_https_context = ssl._create_unverified_context
 USERNAME = "knownassurajit"
 TOKEN = os.environ.get("GITHUB_TOKEN")
 API = "https://api.github.com"
+GQL = "https://api.github.com/graphql"
 
 SURFACE = token("surface")
-SURFACE_VARIANT = token("surface_variant")
-BORDER = token("outline")
+SURFACE_RAISED = token("surface_raised")
+SURFACE_INSET = token("surface_inset")
+PRIMARY = token("primary")
+PRIMARY_SOFT = token("primary_soft")
 TEXT = token("on_surface")
-TEXT_SUBTLE = token("on_surface_variant")
-ACCENT = token("primary")
-ACCENT_RAIL = token("primary_container")
+MUTED = token("on_surface_variant")
+FAINT = token("on_surface_faint")
+BORDER = token("outline")
 
 CARD_W = layout("card_width")
-CARD_H = layout("card_height")
-CARD_RADIUS = layout("card_radius")
+RADIUS = layout("card_radius")
 INSET = layout("content_inset")
 
-MONO = "ui-monospace,'JetBrains Mono',SFMono-Regular,Menlo,monospace"
-SANS = "system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
+MONO = "'JetBrains Mono','Berkeley Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
 
 LANG_COLORS = {
     "Python": "#3572A5",
@@ -55,24 +53,37 @@ LANG_COLORS = {
     "Shell": "#89E051",
     "HTML": "#E34C26",
     "CSS": "#563D7C",
-    "Go": "#00ADD8",
-    "Rust": "#DEA584",
-    "Ruby": "#701516",
-    "Swift": "#F05138",
-    "Dart": "#00B4AB",
-    "C": "#555555",
-    "PHP": "#4F5D95",
-    "R": "#198CE7",
-    "Scala": "#C22D40",
+    "Jupyter Notebook": "#DA5B0B",
+    "PL/SQL": PRIMARY,
 }
 
 
-def _request(url):
-    req = urllib.request.Request(url)
-    req.add_header("Accept", "application/vnd.github.v3+json")
-    req.add_header("User-Agent", f"{USERNAME}-profile-bot")
+def _headers(extra=None):
+    h = {
+        "Accept": "application/vnd.github.v3+json",
+        "User-Agent": f"{USERNAME}-profile-bot",
+    }
     if TOKEN:
-        req.add_header("Authorization", f"token {TOKEN}")
+        h["Authorization"] = f"Bearer {TOKEN}"
+    if extra:
+        h.update(extra)
+    return h
+
+
+def _request(url):
+    req = urllib.request.Request(url, headers=_headers())
+    with urllib.request.urlopen(req, timeout=30) as response:
+        return json.loads(response.read().decode())
+
+
+def _graphql(query: str, variables=None):
+    payload = json.dumps({"query": query, "variables": variables or {}}).encode()
+    req = urllib.request.Request(
+        GQL,
+        data=payload,
+        headers=_headers({"Content-Type": "application/json"}),
+        method="POST",
+    )
     with urllib.request.urlopen(req, timeout=30) as response:
         return json.loads(response.read().decode())
 
@@ -82,7 +93,6 @@ def short_repo(full_name):
 
 
 def describe(event):
-    """Return action text for a public event, or None to skip it."""
     etype = event.get("type")
     payload = event.get("payload", {})
     repo = short_repo(event.get("repo", {}).get("name", ""))
@@ -90,43 +100,28 @@ def describe(event):
     if etype == "PushEvent":
         branch = payload.get("ref", "").replace("refs/heads/", "") or "default"
         size = payload.get("size") or payload.get("distinct_size")
-        if size:
-            label = f"Pushed {size} commit{'s' if size != 1 else ''} to"
-        else:
-            label = "Pushed to"
+        label = f"Pushed {size} commit{'s' if size != 1 else ''} to" if size else "Pushed to"
         return f"{label} <code>{branch}</code> on <b>{repo}</b>"
-
     if etype == "PullRequestEvent":
         action = payload.get("action", "opened")
         num = payload.get("number")
         ref = f" #{num}" if num else ""
         return f"{action.capitalize()} pull request{ref} in <b>{repo}</b>"
-
     if etype == "IssuesEvent":
-        action = payload.get("action", "opened")
-        return f"{action.capitalize()} issue in <b>{repo}</b>"
-
+        return f"{payload.get('action', 'opened').capitalize()} issue in <b>{repo}</b>"
     if etype == "IssueCommentEvent":
         return f"Commented on an issue in <b>{repo}</b>"
-
     if etype == "CreateEvent":
-        ref_type = payload.get("ref_type", "repository")
-        return f"Created {ref_type} in <b>{repo}</b>"
-
+        return f"Created {payload.get('ref_type', 'repository')} in <b>{repo}</b>"
     if etype == "DeleteEvent":
-        ref_type = payload.get("ref_type", "branch")
-        return f"Deleted {ref_type} in <b>{repo}</b>"
-
+        return f"Deleted {payload.get('ref_type', 'branch')} in <b>{repo}</b>"
     if etype == "ReleaseEvent":
         tag = payload.get("release", {}).get("tag_name", "")
         return f"Released {tag} on <b>{repo}</b>".strip()
-
     if etype == "ForkEvent":
         return f"Forked <b>{repo}</b>"
-
     if etype == "WatchEvent":
         return f"Starred <b>{repo}</b>"
-
     return None
 
 
@@ -146,7 +141,6 @@ def fetch_contributions(limit=5):
         if key == seen:
             continue
         seen = key
-
         dt = datetime.strptime(event["created_at"], "%Y-%m-%dT%H:%M:%SZ")
         out.append({
             "text": text,
@@ -167,9 +161,7 @@ def fetch_repos():
 
 
 def top_languages(repos, n=5):
-    counts = Counter(
-        repo.get("language") for repo in repos if repo.get("language")
-    )
+    counts = Counter(r.get("language") for r in repos if r.get("language"))
     total = sum(counts.values()) or 1
     return [
         {"name": lang, "count": count, "pct": round(count / total * 100)}
@@ -177,76 +169,191 @@ def top_languages(repos, n=5):
     ]
 
 
+def compute_streak(days):
+    """days: list of {date, contributionCount} newest-last."""
+    if not days:
+        return 0, 0
+    current = 0
+    longest = 0
+    run = 0
+    # walk from newest to oldest for current streak
+    reversed_days = list(reversed(days))
+    started = False
+    for d in reversed_days:
+        if d["contributionCount"] > 0:
+            current += 1
+            started = True
+        elif started:
+            break
+        else:
+            # today might be empty — skip leading zeros
+            continue
+    for d in days:
+        if d["contributionCount"] > 0:
+            run += 1
+            longest = max(longest, run)
+        else:
+            run = 0
+    return current, longest
+
+
+def fetch_contribution_calendar():
+    query = """
+    query($login: String!) {
+      user(login: $login) {
+        contributionsCollection {
+          contributionCalendar {
+            totalContributions
+            weeks {
+              contributionDays {
+                contributionCount
+                date
+              }
+            }
+          }
+        }
+      }
+    }
+    """
+    try:
+        data = _graphql(query, {"login": USERNAME})
+        cal = data["data"]["user"]["contributionsCollection"]["contributionCalendar"]
+        days = []
+        for week in cal["weeks"]:
+            for day in week["contributionDays"]:
+                days.append(day)
+        current, longest = compute_streak(days)
+        return {
+            "total": cal["totalContributions"],
+            "weeks": cal["weeks"],
+            "days": days,
+            "current_streak": current,
+            "longest_streak": longest,
+        }
+    except Exception as e:
+        print(f"Error fetching contribution calendar: {e}")
+        return {
+            "total": 0,
+            "weeks": [],
+            "days": [],
+            "current_streak": 0,
+            "longest_streak": 0,
+        }
+
+
 def fetch_extended_stats():
     try:
         user = _request(f"{API}/users/{USERNAME}")
         repos = fetch_repos()
+        calendar = fetch_contribution_calendar()
+        owned = [r for r in repos if not r.get("fork")]
         return {
             "repos": user.get("public_repos", 0),
             "followers": user.get("followers", 0),
             "following": user.get("following", 0),
             "stars": sum(r.get("stargazers_count", 0) for r in repos),
             "languages": top_languages(repos),
+            "projects": owned,
+            "contributions": calendar["total"],
+            "current_streak": calendar["current_streak"],
+            "longest_streak": calendar["longest_streak"],
+            "calendar": calendar,
         }
     except Exception as e:
         print(f"Error fetching stats: {e}")
         return {}
 
 
-def _card_frame(w, h, title, aria_label):
-    updated = datetime.now(timezone.utc).strftime("%d %b %Y")
-    right = w - INSET
-    return [
+def _fmt(n):
+    return f"{n:,}"
+
+
+def _xml_escape(text: str) -> str:
+    return (
+        text.replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+    )
+
+
+def _card_shell(w, h, prompt_sql: str, grad_id: str, aria: str):
+    """Elevated SQL console chrome shared by all cards."""
+    updated = datetime.now(timezone.utc).strftime("%d %b %Y · %H:%MZ")
+    safe_prompt = _xml_escape(prompt_sql)
+    parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" '
-        f'viewBox="0 0 {w} {h}" preserveAspectRatio="xMidYMid meet" '
-        f'role="img" aria-label="{aria_label}">',
-        f"<title>{title}</title>",
-        f'<rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" '
-        f'rx="{CARD_RADIUS}" fill="{SURFACE}" stroke="{BORDER}"/>',
-        f'<rect x="0.5" y="0.5" width="{layout("accent_rail_width")}" '
-        f'height="{h - 1}" rx="2" fill="{ACCENT_RAIL}"/>',
-        f'<circle cx="{INSET}" cy="32" r="4" fill="{ACCENT}"/>',
-        f'<text x="{INSET + 16}" y="36" font-family="{SANS}" font-size="13" '
-        f'font-weight="600" letter-spacing="2" fill="{TEXT_SUBTLE}">{title}</text>',
-        f'<text x="{right}" y="36" text-anchor="end" font-family="{MONO}" '
-        f'font-size="11" fill="{TEXT_SUBTLE}">@{USERNAME}</text>',
-        f'<line x1="{INSET}" y1="56" x2="{right}" y2="56" stroke="{BORDER}"/>',
-    ], right, updated
+        f'viewBox="0 0 {w} {h}" preserveAspectRatio="xMidYMid meet" role="img" '
+        f'aria-label="{_xml_escape(aria)}">',
+        f"<title>{_xml_escape(aria)}</title>",
+        f"<defs>"
+        f'<linearGradient id="{grad_id}" x1="0" y1="0" x2="0" y2="1">'
+        f'<stop offset="0%" stop-color="{SURFACE_RAISED}"/>'
+        f'<stop offset="100%" stop-color="{SURFACE}"/>'
+        f"</linearGradient>"
+        f'<clipPath id="clip-{grad_id}">'
+        f'<rect x="1" y="1" width="{w - 2}" height="{h - 2}" rx="{RADIUS}"/>'
+        f"</clipPath>"
+        f"</defs>",
+        f'<g clip-path="url(#clip-{grad_id})">',
+        f'<rect x="1" y="1" width="{w - 2}" height="{h - 2}" '
+        f'fill="url(#{grad_id})" stroke="{BORDER}"/>',
+        f'<rect x="1" y="1" width="4" height="{h - 2}" fill="{PRIMARY}"/>',
+        f'<rect x="1" y="1" width="{w - 2}" height="36" fill="{SURFACE_RAISED}"/>',
+        f'<circle cx="22" cy="18" r="4.5" fill="{FAINT}"/>',
+        f'<circle cx="40" cy="18" r="4.5" fill="{FAINT}"/>',
+        f'<circle cx="58" cy="18" r="4.5" fill="{FAINT}"/>',
+        f'<text x="{w / 2:.0f}" y="22" text-anchor="middle" font-family="{MONO}" '
+        f'font-size="12" fill="{MUTED}">psql — @{USERNAME}</text>',
+        f'<line x1="1" y1="37" x2="{w - 1}" y2="37" stroke="{BORDER}"/>',
+        f'<text x="{INSET}" y="62" font-family="{MONO}" font-size="13" fill="{PRIMARY}">'
+        f"surajit=#</text>",
+        f'<text x="{INSET + 84}" y="62" font-family="{MONO}" font-size="13" fill="{TEXT}">'
+        f"{safe_prompt}</text>",
+        f'<line x1="{INSET}" y1="76" x2="{w - INSET}" y2="76" stroke="{BORDER}"/>',
+    ]
+    return parts, updated
 
 
 def build_stat_card(stats):
-    cols = [
-        (stats.get("repos", 0), "REPOSITORIES"),
-        (stats.get("followers", 0), "FOLLOWERS"),
-        (stats.get("stars", 0), "STARS"),
-        (stats.get("following", 0), "FOLLOWING"),
-    ]
-    w, h = CARD_W, CARD_H
-    col_w = w / 4
-    parts, right, updated = _card_frame(w, h, "PROFILE OVERVIEW", "GitHub profile overview")
+    w, h = CARD_W, 236
+    prompt = "EXPLAIN ANALYZE SELECT * FROM github_activity;"
+    parts, updated = _card_shell(w, h, prompt, "elev-overview", "GitHub profile overview")
 
-    for i, (value, label) in enumerate(cols):
-        cx = col_w * i + col_w / 2
+    cols = [
+        (_fmt(stats.get("repos", 0)), "repositories", "Seq Scan · repos"),
+        (_fmt(stats.get("contributions", 0)), "contributions", "Aggregate · year"),
+        (_fmt(stats.get("current_streak", 0)), "day streak", "Index · streak"),
+        (_fmt(stats.get("stars", 0)), "total stars", "Join · stars"),
+    ]
+    col_w = (w - INSET * 2) / 4
+    for i, (value, label, plan) in enumerate(cols):
+        x = INSET + col_w * i + 8
         if i > 0:
-            x = col_w * i
             parts.append(
-                f'<line x1="{x:.0f}" y1="78" x2="{x:.0f}" y2="132" stroke="{BORDER}"/>'
+                f'<line x1="{INSET + col_w * i:.0f}" y1="92" '
+                f'x2="{INSET + col_w * i:.0f}" y2="184" stroke="{BORDER}"/>'
             )
         parts.append(
-            f'<text x="{cx:.0f}" y="111" text-anchor="middle" font-family="{MONO}" '
-            f'font-size="38" font-weight="700" fill="{TEXT}">{value}</text>'
+            f'<text x="{x:.0f}" y="102" font-family="{MONO}" font-size="11" fill="{FAINT}">'
+            f"{plan}</text>"
         )
         parts.append(
-            f'<text x="{cx:.0f}" y="135" text-anchor="middle" font-family="{SANS}" '
-            f'font-size="11" font-weight="600" letter-spacing="1.5" '
-            f'fill="{TEXT_SUBTLE}">{label}</text>'
+            f'<text x="{x:.0f}" y="148" font-family="{MONO}" font-size="34" font-weight="700" '
+            f'fill="{TEXT}">{value}</text>'
+        )
+        parts.append(
+            f'<text x="{x:.0f}" y="172" font-family="{MONO}" font-size="12" fill="{MUTED}">'
+            f"{label}</text>"
         )
 
+    parts.append(f'<line x1="{INSET}" y1="194" x2="{w - INSET}" y2="194" stroke="{BORDER}"/>')
     parts.append(
-        f'<text x="{right}" y="{h - 24}" text-anchor="end" font-family="{MONO}" '
-        f'font-size="10" fill="{TEXT_SUBTLE}">synced {updated} · GitHub API</text>'
+        f'<text x="{INSET}" y="216" font-family="{MONO}" font-size="11" fill="{FAINT}">'
+        f'followers {stats.get("followers", 0)} · following {stats.get("following", 0)} · '
+        f"synced {updated}</text>"
     )
-    parts.append("</svg>")
+    parts.append("</g></svg>")
 
     os.makedirs("assets", exist_ok=True)
     with open("assets/stat-overview.svg", "w", encoding="utf-8") as f:
@@ -256,49 +363,210 @@ def build_stat_card(stats):
 
 def build_language_card(languages):
     n = max(len(languages), 1)
-    h = 56 + n * 16 + 28
+    # Header 106 + rows + footer band 40
+    h = 106 + n * 30 + 40
     w = CARD_W
-    parts, right, updated = _card_frame(w, h, "TOP LANGUAGES", "Top repository languages")
-
-    if not languages:
-        parts.append(
-            f'<text x="{w / 2:.0f}" y="72" text-anchor="middle" font-family="{SANS}" '
-            f'font-size="13" fill="{TEXT_SUBTLE}">No language data available</text>'
-        )
-    else:
-        bar_left = INSET
-        bar_right = right
-        bar_width = bar_right - bar_left - 90
-        y_start = 68
-        row_h = 16
-
-        for i, lang in enumerate(languages):
-            y = y_start + i * row_h
-            color = LANG_COLORS.get(lang["name"], ACCENT)
-            fill_w = max(bar_width * lang["pct"] / 100, 4)
-            parts.append(
-                f'<text x="{bar_left}" y="{y}" font-family="{MONO}" font-size="11" '
-                f'fill="{TEXT}">{lang["name"]}</text>'
-            )
-            parts.append(
-                f'<rect x="{bar_left + 90}" y="{y - 9}" width="{fill_w:.0f}" '
-                f'height="6" rx="3" fill="{color}" opacity="0.85"/>'
-            )
-            parts.append(
-                f'<text x="{bar_right}" y="{y}" text-anchor="end" font-family="{MONO}" '
-                f'font-size="10" fill="{TEXT_SUBTLE}">{lang["pct"]}%</text>'
-            )
+    prompt = "SELECT language, COUNT(*) FROM repos GROUP BY 1 ORDER BY 2 DESC;"
+    parts, updated = _card_shell(
+        w, h, prompt, "elev-langs", "Top repository languages"
+    )
 
     parts.append(
-        f'<text x="{right}" y="{h - 12}" text-anchor="end" font-family="{MONO}" '
-        f'font-size="10" fill="{TEXT_SUBTLE}">synced {updated} · GitHub API</text>'
+        f'<text x="{INSET}" y="96" font-family="{MONO}" font-size="12" fill="{MUTED}">language</text>'
     )
-    parts.append("</svg>")
+    parts.append(
+        f'<text x="{w - INSET}" y="96" text-anchor="end" font-family="{MONO}" '
+        f'font-size="12" fill="{MUTED}">share</text>'
+    )
+    parts.append(
+        f'<line x1="{INSET}" y1="106" x2="{w - INSET}" y2="106" stroke="{BORDER}"/>'
+    )
 
-    os.makedirs("assets", exist_ok=True)
+    bar_left = INSET + 140
+    bar_max = w - INSET - bar_left - 56
+    if not languages:
+        parts.append(
+            f'<text x="{w / 2:.0f}" y="150" text-anchor="middle" font-family="{MONO}" '
+            f'font-size="13" fill="{MUTED}">No language data</text>'
+        )
+    else:
+        for i, lang in enumerate(languages):
+            y = 132 + i * 30
+            color = LANG_COLORS.get(lang["name"], PRIMARY)
+            fill_w = max(bar_max * lang["pct"] / 100, 6)
+            parts.append(
+                f'<text x="{INSET}" y="{y}" font-family="{MONO}" font-size="13" fill="{TEXT}">'
+                f'{_xml_escape(lang["name"])}</text>'
+            )
+            parts.append(
+                f'<rect x="{bar_left}" y="{y - 11}" width="{bar_max}" height="12" rx="3" '
+                f'fill="{SURFACE_INSET}"/>'
+            )
+            parts.append(
+                f'<rect x="{bar_left}" y="{y - 11}" width="{fill_w:.0f}" height="12" rx="3" '
+                f'fill="{color}"/>'
+            )
+            parts.append(
+                f'<text x="{w - INSET}" y="{y}" text-anchor="end" font-family="{MONO}" '
+                f'font-size="12" fill="{MUTED}">{lang["pct"]}%</text>'
+            )
+
+    footer_y = h - 18
+    parts.append(
+        f'<line x1="{INSET}" y1="{footer_y - 14}" x2="{w - INSET}" y2="{footer_y - 14}" '
+        f'stroke="{BORDER}"/>'
+    )
+    parts.append(
+        f'<text x="{w - INSET}" y="{footer_y}" text-anchor="end" font-family="{MONO}" '
+        f'font-size="10" fill="{FAINT}">synced {updated}</text>'
+    )
+    parts.append("</g></svg>")
+
     with open("assets/stat-languages.svg", "w", encoding="utf-8") as f:
         f.write("".join(parts))
     print("Wrote assets/stat-languages.svg")
+
+
+def _heat_color(count: int) -> str:
+    if count <= 0:
+        return token("heatmap_0")
+    if count <= 2:
+        return token("heatmap_1")
+    if count <= 5:
+        return token("heatmap_2")
+    if count <= 10:
+        return token("heatmap_3")
+    return token("heatmap_4")
+
+
+def build_heatmap_card(calendar):
+    weeks = calendar.get("weeks") or []
+    cell = 12
+    gap = 3
+    step = cell + gap
+    label_w = 36
+    top = 92
+    w = CARD_W
+    n_weeks = max(len(weeks), 1)
+    # Fit grid inside content width
+    avail = w - INSET * 2 - label_w
+    if n_weeks * step - gap > avail:
+        cell = 10
+        gap = 3
+        step = cell + gap
+    grid_w = n_weeks * step - gap
+    offset_x = INSET + label_w
+    h = top + 7 * step + 52
+
+    prompt = "SELECT date, contributions FROM contribution_calendar;"
+    parts, updated = _card_shell(
+        w, h, prompt, "elev-heat", "GitHub contribution heatmap"
+    )
+
+    for i, label in enumerate(["", "Mon", "", "Wed", "", "Fri", ""]):
+        if label:
+            parts.append(
+                f'<text x="{INSET + label_w - 8}" y="{top + i * step + cell - 1}" '
+                f'text-anchor="end" font-family="{MONO}" font-size="10" fill="{FAINT}">'
+                f"{label}</text>"
+            )
+
+    if not weeks:
+        parts.append(
+            f'<text x="{w / 2:.0f}" y="{h / 2:.0f}" text-anchor="middle" font-family="{MONO}" '
+            f'font-size="13" fill="{MUTED}">Contribution data unavailable '
+            f"(set GITHUB_TOKEN for GraphQL)</text>"
+        )
+    else:
+        for wi, week in enumerate(weeks):
+            for di, day in enumerate(week.get("contributionDays", [])):
+                x = offset_x + wi * step
+                y = top + di * step
+                color = _heat_color(day.get("contributionCount", 0))
+                parts.append(
+                    f'<rect x="{x:.0f}" y="{y:.0f}" width="{cell}" height="{cell}" rx="2" '
+                    f'fill="{color}"/>'
+                )
+
+    legend_y = h - 22
+    parts.append(
+        f'<line x1="{INSET}" y1="{legend_y - 18}" x2="{w - INSET}" y2="{legend_y - 18}" '
+        f'stroke="{BORDER}"/>'
+    )
+    parts.append(
+        f'<text x="{INSET}" y="{legend_y}" font-family="{MONO}" font-size="11" fill="{MUTED}">'
+        f'{_fmt(calendar.get("total", 0))} contributions · longest streak '
+        f'{calendar.get("longest_streak", 0)}d · synced {updated}</text>'
+    )
+    # Legend flush-right, inside inset
+    lx = w - INSET - 118
+    parts.append(
+        f'<text x="{lx}" y="{legend_y}" font-family="{MONO}" font-size="10" fill="{FAINT}">Less</text>'
+    )
+    for i, key in enumerate(
+        ["heatmap_0", "heatmap_1", "heatmap_2", "heatmap_3", "heatmap_4"]
+    ):
+        parts.append(
+            f'<rect x="{lx + 34 + i * 14}" y="{legend_y - 9}" width="11" height="11" rx="2" '
+            f'fill="{token(key)}"/>'
+        )
+    parts.append(
+        f'<text x="{w - INSET}" y="{legend_y}" text-anchor="end" font-family="{MONO}" '
+        f'font-size="10" fill="{FAINT}">More</text>'
+    )
+    parts.append("</g></svg>")
+
+    with open("assets/stat-heatmap.svg", "w", encoding="utf-8") as f:
+        f.write("".join(parts))
+    print("Wrote assets/stat-heatmap.svg")
+
+
+PROJECT_BLURBS = {
+    "impstr": "Fast-paced physics-based Android action game with custom canvas loops.",
+    "void": "Lightweight Kotlin utility library — operators and Android boilerplate reduction.",
+    "flora": "Minimalist plant e-commerce showcase with polished motion.",
+    "dvide": "Kotlin project exploring structured UI and tooling.",
+    "clndr": "Calendar utility built in Kotlin.",
+    "rebyld": "Experimental rebuild / tooling project.",
+    "Editor.io": "Online HTML/CSS/JS + Markdown editor.",
+    "calculator-application": "High-performance calculator written in C++.",
+    "limit-order-book": "Limit order book engine with matching and quantity checks.",
+    "realtime-facial-expression-recognition": "FER-2013 realtime expression model (Keras · OpenCV · Flask).",
+}
+
+PROJECT_LINKS = {
+    "impstr": "https://play.google.com/store/apps/details?id=com.game.impstr",
+    "Editor.io": "https://code-web.vercel.app/",
+}
+
+
+def render_projects(projects):
+    rows = []
+    # Prefer starred / recently updated; skip profile README repo
+    filtered = [p for p in projects if p.get("name") != USERNAME]
+    filtered.sort(
+        key=lambda p: (p.get("pushed_at", ""), p.get("stargazers_count", 0)),
+        reverse=True,
+    )
+    if not filtered:
+        return "_No public projects found._"
+
+    lines = [
+        "| Project | Description | Stack | ★ |",
+        "| :-- | :-- | :-- | --: |",
+    ]
+    for p in filtered:
+        name = p["name"]
+        url = PROJECT_LINKS.get(name) or (p.get("homepage") or "").strip() or p["html_url"]
+        link = f"**[{name} ↗]({url})**"
+        desc = PROJECT_BLURBS.get(name) or (p.get("description") or "—")
+        # keep description short
+        if len(desc) > 110:
+            desc = desc[:107].rstrip() + "…"
+        lang = p.get("language") or "—"
+        stars = p.get("stargazers_count", 0)
+        lines.append(f"| {link} | {desc} | {lang} | {stars} |")
+    return "\n".join(lines)
 
 
 def render_activity(contributions):
@@ -315,6 +583,15 @@ def render_activity(contributions):
     return rows
 
 
+def _replace_marker(content, start, end, body):
+    pattern = rf"<!-- {start} -->.*?<!-- {end} -->"
+    replacement = f"<!-- {start} -->\n{body}\n<!-- {end} -->"
+    if not re.search(pattern, content, flags=re.DOTALL):
+        print(f"WARNING: markers {start}/{end} not found in README")
+        return content
+    return re.sub(pattern, replacement, content, flags=re.DOTALL)
+
+
 def update_readme():
     contributions = fetch_contributions()
     stats = fetch_extended_stats()
@@ -322,17 +599,20 @@ def update_readme():
     with open("README.md", "r", encoding="utf-8") as f:
         content = f.read()
 
-    contrib_md = render_activity(contributions)
-    content = re.sub(
-        r"<!-- CONTRIB_START -->.*?<!-- CONTRIB_END -->",
-        f"<!-- CONTRIB_START -->\n{contrib_md}\n<!-- CONTRIB_END -->",
-        content,
-        flags=re.DOTALL,
+    content = _replace_marker(
+        content, "CONTRIB_START", "CONTRIB_END", render_activity(contributions)
     )
 
     if stats:
         build_stat_card(stats)
         build_language_card(stats.get("languages", []))
+        build_heatmap_card(stats.get("calendar", {}))
+        content = _replace_marker(
+            content,
+            "PROJECTS_START",
+            "PROJECTS_END",
+            render_projects(stats.get("projects", [])),
+        )
 
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(content)

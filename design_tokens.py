@@ -1,43 +1,41 @@
-"""Shared design tokens for profile README assets.
-
-The profile is rendered by a mix of hand-authored SVG files, generated pill
-badges, and API-driven stat cards. Keeping values here gives every asset a
-single source of truth instead of letting tiny color differences drift over time.
-"""
+"""Shared design tokens for the SQL-terminal profile aesthetic."""
 
 DESIGN_TOKENS = {
-    "surface": "#22272B",
-    "surface_variant": "#2C333A",
-    "primary": "#579DFF",
-    "primary_container": "#0C66E4",
-    "on_surface": "#C7D1DB",
-    "on_surface_variant": "#8C9BAB",
+    "surface": "#0E1420",
+    "surface_raised": "#161D2B",
+    "surface_inset": "#1D2536",
+    "primary": "#E0A458",
+    "primary_soft": "#C98A4B",
+    "accent": "#579DFF",
+    "on_surface": "#E7EBF5",
+    "on_surface_variant": "#7C89A6",
+    "on_surface_faint": "#3F4A63",
     "on_surface_bright": "#F7F8F9",
-    "outline": "#2C333A",
+    "outline": "#2A3348",
+    "heatmap_0": "#1D2536",
+    "heatmap_1": "#3F4A63",
+    "heatmap_2": "#5C6883",
+    "heatmap_3": "#C98A4B",
+    "heatmap_4": "#E0A458",
+    "pill_surface": "#22272B",
 }
 
 LAYOUT = {
-    "card_width": 720,
-    "card_height": 180,
-    "card_radius": 14,
-    "accent_rail_width": 4,
-    "content_inset": 32,
+    "card_width": 900,
+    "card_radius": 12,
+    "content_inset": 28,
     "pill_height": 28,
     "chip_height": 24,
-    "pill_radius": 14,
 }
 
 
 def token(name: str) -> str:
-    """Return a hex token with the leading # for SVG/CSS contexts."""
     return DESIGN_TOKENS[name]
 
 
 def token_param(name: str) -> str:
-    """Return a hex token without # for URL query parameters."""
     return token(name).lstrip("#")
 
 
 def layout(name: str):
-    """Return a shared layout constant."""
     return LAYOUT[name]
