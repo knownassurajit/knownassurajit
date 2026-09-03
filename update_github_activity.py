@@ -25,6 +25,7 @@ USERNAME = "knownassurajit"
 TOKEN = os.environ.get("GITHUB_TOKEN")
 API = "https://api.github.com"
 GQL = "https://api.github.com/graphql"
+SSL_CONTEXT = ssl.create_default_context()
 
 SURFACE = token("surface")
 SURFACE_RAISED = token("surface_raised")
@@ -71,7 +72,7 @@ def _headers(extra=None):
 
 def _request(url):
     req = urllib.request.Request(url, headers=_headers())
-    with urllib.request.urlopen(req, timeout=30) as response:
+    with urllib.request.urlopen(req, timeout=30, context=SSL_CONTEXT) as response:
         return json.loads(response.read().decode())
 
 
@@ -83,7 +84,7 @@ def _graphql(query: str, variables=None):
         headers=_headers({"Content-Type": "application/json"}),
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=30) as response:
+    with urllib.request.urlopen(req, timeout=30, context=SSL_CONTEXT) as response:
         return json.loads(response.read().decode())
 
 

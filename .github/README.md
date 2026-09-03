@@ -6,7 +6,7 @@ This directory contains GitHub Actions workflows that automatically refresh cont
 
 ## ⚡ Workflows
 
-- **`update_activity.yml`**: Runs on a 12-hour cron (`0 */12 * * *`) and on `workflow_dispatch`. It executes inside a `python:3.10-slim` container to keep the runtime pinned and reproducible.
+- **`update_activity.yml`**: Runs on a 12-hour cron (`0 */12 * * *`) and on `workflow_dispatch`. It executes inside a `python:3.12-slim` container to keep the runtime pinned and reproducible. `actions/checkout` is SHA-pinned.
 
 ### Branching model: `develop` → `master`
 
