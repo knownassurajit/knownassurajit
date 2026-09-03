@@ -325,13 +325,18 @@ def build_stat_card(stats):
         (_fmt(stats.get("current_streak", 0)), "day streak", "Index · streak"),
         (_fmt(stats.get("stars", 0)), "total stars", "Join · stars"),
     ]
-    col_w = (w - INSET * 2) / 4
+    num_cols = len(cols)
+    usable_w = w - INSET * 2
+    col_w = usable_w / num_cols
     for i, (value, label, plan) in enumerate(cols):
-        x = INSET + col_w * i + 8
+        # Each column center is symmetrically placed; text left-inset by 8px from center
+        col_center = INSET + col_w * i + col_w / 2
+        x = col_center - col_w / 2 + 8
         if i > 0:
+            divider_x = INSET + col_w * i
             parts.append(
-                f'<line x1="{INSET + col_w * i:.0f}" y1="92" '
-                f'x2="{INSET + col_w * i:.0f}" y2="184" stroke="{BORDER}"/>'
+                f'<line x1="{divider_x:.0f}" y1="92" '
+                f'x2="{divider_x:.0f}" y2="184" stroke="{BORDER}"/>'
             )
         parts.append(
             f'<text x="{x:.0f}" y="102" font-family="{MONO}" font-size="11" fill="{FAINT}">'
@@ -392,10 +397,13 @@ def build_language_card(languages):
         for i, lang in enumerate(languages):
             y = 132 + i * 30
             color = LANG_COLORS.get(lang["name"], PRIMARY)
-            fill_w = max(bar_max * lang["pct"] / 100, 6)
+            fill_w = max(2, int(lang["pct"] * bar_max / 100))
+            name = lang["name"]
+            if len(name) > 12:
+                name = name[:11] + "…"
             parts.append(
                 f'<text x="{INSET}" y="{y}" font-family="{MONO}" font-size="13" fill="{TEXT}">'
-                f'{_xml_escape(lang["name"])}</text>'
+                f'{_xml_escape(name)}</text>'
             )
             parts.append(
                 f'<rect x="{bar_left}" y="{y - 11}" width="{bar_max}" height="12" rx="3" '
