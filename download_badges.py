@@ -15,7 +15,6 @@ import urllib.request
 
 from design_tokens import layout, token
 
-ssl._create_default_https_context = ssl._create_unverified_context
 
 SURFACE = token("pill_surface")
 LOGO_COLOR = token("accent")

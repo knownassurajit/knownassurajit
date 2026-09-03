@@ -20,7 +20,6 @@ from datetime import datetime, timezone
 
 from design_tokens import layout, token
 
-ssl._create_default_https_context = ssl._create_unverified_context
 
 USERNAME = "knownassurajit"
 TOKEN = os.environ.get("GITHUB_TOKEN")

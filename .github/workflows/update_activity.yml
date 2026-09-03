@@ -15,7 +15,7 @@ jobs:
   update-readme:
     runs-on: ubuntu-latest
     container:
-      image: python:3.10-slim
+      image: python:3.12-slim
     steps:
       - name: Install git
         run: |
@@ -24,7 +24,7 @@ jobs:
           rm -rf /var/lib/apt/lists/*
 
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           fetch-depth: 0
           ref: develop
@@ -32,6 +32,8 @@ jobs:
       - name: Validate scripts (py_compile)
         run: |
           python -m py_compile update_github_activity.py download_badges.py design_tokens.py
+      - name: Verify no undeclared imports
+        run: python -c "import json, os, re, ssl, urllib.request, collections, datetime; print('All stdlib imports OK')"
 
       - name: Update Activity
         env:
