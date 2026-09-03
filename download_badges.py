@@ -15,7 +15,7 @@ import urllib.request
 
 from design_tokens import layout, token
 
-ssl._create_default_https_context = ssl._create_unverified_context
+SSL_CONTEXT = ssl.create_default_context()
 
 SURFACE = token("pill_surface")
 LOGO_COLOR = token("accent")
@@ -134,7 +134,7 @@ def _fetch_simple_icon(slug: str) -> str | None:
     for url in urls:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         try:
-            with urllib.request.urlopen(req, timeout=20) as response:
+            with urllib.request.urlopen(req, timeout=20, context=SSL_CONTEXT) as response:
                 raw = response.read().decode()
             if "<svg" not in raw:
                 continue

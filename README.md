@@ -30,7 +30,7 @@
 
 ---
 
-## Profile
+## <img src="assets/icon-profile.svg" height="20" /> Profile
 
 > **Business Intelligence & Database Engineer** with 3+ years designing, optimizing, and operating enterprise-grade data systems. Deep expertise in **PL/SQL, PostgreSQL, Oracle, and MySQL**, with hands-on command of ETL, data migration, cloud deployment, and performance tuning.
 >
@@ -38,7 +38,7 @@
 
 ---
 
-## Stack
+## <img src="assets/icon-stack.svg" height="20" /> Stack
 
 **Data**
 <img src="./assets/badges/badge-python.svg" height="24" alt="Python" />
@@ -64,7 +64,7 @@
 
 ---
 
-## Works
+## <img src="assets/icon-works.svg" height="20" /> Works
 
 **Professional**
 
@@ -92,7 +92,7 @@
 
 ---
 
-## Journey
+## <img src="assets/icon-journey.svg" height="20" /> Journey
 
 | Period | Role | Organization |
 | :-- | :-- | :-- |
@@ -110,7 +110,7 @@
 
 ---
 
-## Certifications
+## <img src="assets/icon-certs.svg" height="20" /> Certifications
 
 | Certification | Focus |
 | :-- | :-- |
@@ -122,7 +122,7 @@
 
 ---
 
-## Education
+## <img src="assets/icon-education.svg" height="20" /> Education
 
 | Institution | Programme | Years |
 | :-- | :-- | :-- |
@@ -134,7 +134,7 @@
 
 ---
 
-## Activity
+## <img src="assets/icon-activity.svg" height="20" /> Activity
 
 Recent activity, refreshed every 12 hours via the GitHub API:
 
