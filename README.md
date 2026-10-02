@@ -32,9 +32,11 @@
 
 ## Profile
 
-> **Business Intelligence & Database Engineer** with 3+ years designing, optimizing, and operating enterprise-grade data systems. Deep expertise in **PL/SQL, PostgreSQL, Oracle, and MySQL**, with hands-on command of ETL, data migration, cloud deployment, and performance tuning.
+> **Assistant Manager — BI & Database Engineering** at Bosch India (~6 years). I design and operate enterprise data platforms — **Oracle, PL/SQL, PostgreSQL, APEX, ETL, Azure** — and ship product work on the side: **Kotlin / Jetpack Compose** Android apps, **Next.js** storefronts, and **AI tooling** (GPT-4o, Copilot, prompt engineering).
 >
-> Comfortable across Agile and DevOps workflows — building scalable and secure systems, driven by clean design and emerging tech (HCI, on-device AI, and sustainable software).
+> **Keywords:** Oracle · PL/SQL · PostgreSQL · Azure · CI/CD · Power BI · Kotlin · Jetpack Compose · Next.js · TypeScript · Prisma · Supabase · AI / LLM · open source
+>
+> **Featured builds:** [Flora](https://florabyjonakee.com) (jewellery e-commerce) · [Impstr](https://github.com/knownassurajit/impstr) (social-deduction Android) · [Void](https://github.com/knownassurajit/void) (minimalist Android launcher) · [Girly Tales](https://www.girlytales.in) · [clndr](https://github.com/knownassurajit/clndr) · [dvide](https://github.com/knownassurajit/dvide) / Cyclewise · [rebyld](https://github.com/knownassurajit/rebyld)
 
 ---
 
@@ -71,23 +73,24 @@
 | Nº | Project | Domain |
 | :-: | :-- | :-- |
 | `01` | **Manufacturing KPI Platform** | Oracle SQL · Tableau · Power BI |
-| `02` | **Supply Chain Risk DB** | PostgreSQL · PL/pgSQL · Python |
-| `03` | **Core Banking Pipeline** | PostgreSQL · Oracle · BaNCS |
+| `02` | **LLM KPI / incident assistant** | GPT-4o · Azure Foundry · Azure DevOps |
+| `03` | **Supply Chain Risk DB** | PostgreSQL · PL/pgSQL · Python |
+| `04` | **Core Banking Pipeline** | PostgreSQL · Oracle · BaNCS |
+| `05` | **Flora by Jonakee** | Next.js · Prisma · Supabase · Vercel |
 
 **Public repositories** · refreshed every 12 hours via GitHub API
 
 <!-- PROJECTS_START -->
 | Project | Description | Stack | ★ |
 | :-- | :-- | :-- | --: |
-| **[rebyld ↗](https://github.com/knownassurajit/rebyld)** | Experimental rebuild / tooling project. | HTML | 0 |
-| **[void ↗](https://github.com/knownassurajit/void)** | Lightweight Kotlin utility library — operators and Android boilerplate reduction. | Kotlin | 0 |
-| **[dvide ↗](https://github.com/knownassurajit/dvide)** | Kotlin project exploring structured UI and tooling. | Kotlin | 0 |
-| **[impstr ↗](https://play.google.com/store/apps/details?id=com.game.impstr)** | Fast-paced physics-based Android action game with custom canvas loops. | Kotlin | 0 |
-| **[clndr ↗](https://github.com/knownassurajit/clndr)** | Calendar utility built in Kotlin. | Kotlin | 0 |
-| **[limit-order-book ↗](https://github.com/knownassurajit/limit-order-book)** | Limit order book engine with matching and quantity checks. | C++ | 3 |
-| **[calculator-application ↗](https://github.com/knownassurajit/calculator-application)** | High-performance calculator written in C++. | C++ | 1 |
-| **[Editor.io ↗](https://code-web.vercel.app/)** | Online HTML/CSS/JS + Markdown editor. | — | 0 |
-| **[realtime-facial-expression-recognition ↗](https://github.com/knownassurajit/realtime-facial-expression-recognition)** | FER-2013 realtime expression model (Keras · OpenCV · Flask). | Jupyter Notebook | 1 |
+| **[impstr ↗](https://github.com/knownassurajit/impstr)** | Offline pass-and-play social deduction party game (Stealth Mode). | Kotlin · Compose | — |
+| **[void ↗](https://github.com/knownassurajit/void)** | Radically minimalist text-based Android launcher to cut digital noise. | Kotlin · Compose | — |
+| **[clndr ↗](https://github.com/knownassurajit/clndr)** | Minimal monochrome widget-first calendar — life grid, milestones, Glance. | Kotlin · Compose | — |
+| **[dvide ↗](https://github.com/knownassurajit/dvide)** | Cyclewise — salary-cycle personal finance tracker (on-device). | Kotlin · Compose | — |
+| **[rebyld ↗](https://github.com/knownassurajit/rebyld)** | Personal performance PWA — nutrition, workouts, hydration, recovery. | PWA · JS | — |
+| **[gemini-nano-playground ↗](https://github.com/knownassurajit/gemini-nano-playground)** | On-device AI playground with Gemini Nano + Jetpack Compose. | Kotlin · Compose · AI | — |
+| **[limit-order-book ↗](https://github.com/knownassurajit/limit-order-book)** | Limit order book engine with matching and quantity checks. | C++ · Python | — |
+| **[Editor.io ↗](https://code-web.vercel.app/)** | Online HTML/CSS/JS + Markdown editor. | Web | — |
 <!-- PROJECTS_END -->
 
 ---
