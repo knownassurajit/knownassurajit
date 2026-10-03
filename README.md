@@ -79,10 +79,10 @@
 <!-- PROJECTS_START -->
 | Project | Description | Stack | ★ |
 | :-- | :-- | :-- | --: |
-| **[void ↗](https://github.com/knownassurajit/void)** | Lightweight Kotlin utility library — operators and Android boilerplate reduction. | Kotlin | 0 |
+| **[clndr ↗](https://github.com/knownassurajit/clndr)** | Calendar utility built in Kotlin. | Kotlin | 0 |
 | **[impstr ↗](https://play.google.com/store/apps/details?id=com.game.impstr)** | Fast-paced physics-based Android action game with custom canvas loops. | Kotlin | 0 |
 | **[dvide ↗](https://github.com/knownassurajit/dvide)** | Kotlin project exploring structured UI and tooling. | Kotlin | 0 |
-| **[clndr ↗](https://github.com/knownassurajit/clndr)** | Calendar utility built in Kotlin. | Kotlin | 0 |
+| **[void ↗](https://github.com/knownassurajit/void)** | Lightweight Kotlin utility library — operators and Android boilerplate reduction. | Kotlin | 0 |
 | **[rebyld ↗](https://github.com/knownassurajit/rebyld)** | Experimental rebuild / tooling project. | HTML | 0 |
 | **[limit-order-book ↗](https://github.com/knownassurajit/limit-order-book)** | Limit order book engine with matching and quantity checks. | C++ | 3 |
 | **[calculator-application ↗](https://github.com/knownassurajit/calculator-application)** | High-performance calculator written in C++. | C++ | 1 |
@@ -140,11 +140,11 @@ Recent activity, refreshed every 12 hours via the GitHub API:
 
 <!-- CONTRIB_START -->
 <ul>
-  <li><b>Sep 04, 2026</b> &nbsp;Pushed to <code>master</code> on <b>impstr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/impstr'>repo</a></li>
-  <li><b>Sep 04, 2026</b> &nbsp;Pushed to <code>master</code> on <b>dvide</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/dvide'>repo</a></li>
-  <li><b>Sep 04, 2026</b> &nbsp;Pushed to <code>master</code> on <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
-  <li><b>Sep 04, 2026</b> &nbsp;Pushed to <code>dependabot/gradle/androidx.navigation-navigation-compose-2.10.0</code> on <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
-  <li><b>Sep 04, 2026</b> &nbsp;Pushed to <code>dependabot/github_actions/actions/github-script-9.0.0</code> on <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
+  <li><b>Oct 02, 2026</b> &nbsp;Deleted branch in <b>clndr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/clndr'>repo</a></li>
+  <li><b>Oct 02, 2026</b> &nbsp;Merged pull request #28 in <b>clndr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/clndr'>repo</a></li>
+  <li><b>Oct 02, 2026</b> &nbsp;Opened pull request #28 in <b>clndr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/clndr'>repo</a></li>
+  <li><b>Oct 02, 2026</b> &nbsp;Deleted branch in <b>impstr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/impstr'>repo</a></li>
+  <li><b>Oct 02, 2026</b> &nbsp;Deleted branch in <b>dvide</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/dvide'>repo</a></li>
 </ul>
 <!-- CONTRIB_END -->
 
