@@ -79,8 +79,8 @@
 <!-- PROJECTS_START -->
 | Project | Description | Stack | ★ |
 | :-- | :-- | :-- | --: |
-| **[tunr ↗](https://github.com/knownassurajit/tunr)** | — | Kotlin | 0 |
 | **[void ↗](https://github.com/knownassurajit/void)** | Lightweight Kotlin utility library — operators and Android boilerplate reduction. | JavaScript | 0 |
+| **[tunr ↗](https://github.com/knownassurajit/tunr)** | — | Kotlin | 0 |
 | **[impstr ↗](https://play.google.com/store/apps/details?id=com.game.impstr)** | Fast-paced physics-based Android action game with custom canvas loops. | Kotlin | 0 |
 | **[clndr ↗](https://github.com/knownassurajit/clndr)** | Calendar utility built in Kotlin. | Kotlin | 0 |
 | **[dvide ↗](https://github.com/knownassurajit/dvide)** | Kotlin project exploring structured UI and tooling. | Kotlin | 0 |
@@ -141,11 +141,11 @@ Recent activity, refreshed every 12 hours via the GitHub API:
 
 <!-- CONTRIB_START -->
 <ul>
+  <li><b>Oct 22, 2026</b> &nbsp;Created branch in <b>tunr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/tunr'>repo</a></li>
   <li><b>Oct 15, 2026</b> &nbsp;Pushed to <code>dependabot/gradle/androidx.core-core-ktx-1.19.1</code> on <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
   <li><b>Oct 15, 2026</b> &nbsp;Pushed to <code>dependabot/gradle/androidx.compose-compose-bom-2026.09.00</code> on <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
   <li><b>Oct 15, 2026</b> &nbsp;Deleted branch in <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
   <li><b>Oct 15, 2026</b> &nbsp;Pushed to <code>dependabot/gradle/com.android.application-9.4.1</code> on <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
-  <li><b>Oct 15, 2026</b> &nbsp;Pushed to <code>master</code> on <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
 </ul>
 <!-- CONTRIB_END -->
 
