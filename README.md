@@ -79,12 +79,12 @@
 <!-- PROJECTS_START -->
 | Project | Description | Stack | ★ |
 | :-- | :-- | :-- | --: |
-| **[tunr ↗](https://github.com/knownassurajit/tunr)** | — | Kotlin | 0 |
 | **[void ↗](https://github.com/knownassurajit/void)** | Lightweight Kotlin utility library — operators and Android boilerplate reduction. | JavaScript | 0 |
-| **[dvide ↗](https://github.com/knownassurajit/dvide)** | Kotlin project exploring structured UI and tooling. | JavaScript | 0 |
-| **[impstr ↗](https://play.google.com/store/apps/details?id=com.game.impstr)** | Fast-paced physics-based Android action game with custom canvas loops. | Kotlin | 0 |
 | **[clndr ↗](https://github.com/knownassurajit/clndr)** | Calendar utility built in Kotlin. | Kotlin | 0 |
 | **[rebyld ↗](https://github.com/knownassurajit/rebyld)** | Experimental rebuild / tooling project. | HTML | 0 |
+| **[dvide ↗](https://github.com/knownassurajit/dvide)** | Kotlin project exploring structured UI and tooling. | JavaScript | 0 |
+| **[tunr ↗](https://github.com/knownassurajit/tunr)** | — | Kotlin | 0 |
+| **[impstr ↗](https://play.google.com/store/apps/details?id=com.game.impstr)** | Fast-paced physics-based Android action game with custom canvas loops. | Kotlin | 0 |
 | **[limit-order-book ↗](https://github.com/knownassurajit/limit-order-book)** | Limit order book engine with matching and quantity checks. | C++ | 3 |
 | **[calculator-application ↗](https://github.com/knownassurajit/calculator-application)** | High-performance calculator written in C++. | C++ | 1 |
 | **[Editor.io ↗](https://code-web.vercel.app/)** | Online HTML/CSS/JS + Markdown editor. | — | 0 |
@@ -141,11 +141,11 @@ Recent activity, refreshed every 12 hours via the GitHub API:
 
 <!-- CONTRIB_START -->
 <ul>
+  <li><b>Nov 05, 2026</b> &nbsp;Assigned pull request #115 in <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
+  <li><b>Nov 10, 2026</b> &nbsp;Merged pull request #114 in <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
   <li><b>Nov 01, 2026</b> &nbsp;Pushed to <code>feature/design-overhaul</code> on <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
   <li><b>Nov 01, 2026</b> &nbsp;Pushed to <code>master</code> on <b>dvide</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/dvide'>repo</a></li>
   <li><b>Nov 01, 2026</b> &nbsp;Deleted branch in <b>dvide</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/dvide'>repo</a></li>
-  <li><b>Nov 01, 2026</b> &nbsp;Pushed to <code>master</code> on <b>tunr</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/tunr'>repo</a></li>
-  <li><b>Nov 01, 2026</b> &nbsp;Pushed to <code>feature/design-overhaul</code> on <b>void</b> &nbsp;&middot;&nbsp; <a href='https://github.com/knownassurajit/void'>repo</a></li>
 </ul>
 <!-- CONTRIB_END -->
 
