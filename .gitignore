@@ -29,3 +29,8 @@ venv.bak/
 # Environment variables
 .env
 .env.local
+
+# ECC / Cursor local logs
+.cursor/*.log
+.cursor/ecc-install-state.json
+.ecc/
